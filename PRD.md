@@ -11,7 +11,7 @@
 
 ## 1. Executive Summary & Objective
 
-**Chitai Soft Automation** is an industrial automation and engineering solutions provider based in Uttar Pradesh, delivering reliable control systems, PLC & SCADA integration, and Industrial IoT across India.
+**Chitai Soft Automation** is an industrial automation and engineering solutions provider delivering reliable control systems, PLC & SCADA integration, and Industrial IoT across India.
 
 ### 1.1 Objective
 Design and develop a high-performance, responsive corporate website that:
@@ -83,9 +83,9 @@ graph TD
 ### 4.1 Home Page (`/index.html`)
 
 * **Hero Section:**
-  * Eyebrow: `INDUSTRIAL AUTOMATION • UTTAR PRADESH`
+  * Eyebrow: `INDUSTRIAL AUTOMATION • PAN-INDIA`
   * Primary Headline: **"Precision Automation. Intelligent Control."**
-  * Sub-headline: *"PLC & SCADA systems and Industrial IoT solutions engineered for power generation and oil & gas operators across Uttar Pradesh and beyond."*
+  * Sub-headline: *"PLC & SCADA systems and Industrial IoT solutions engineered for power generation and oil & gas operators across India and beyond."*
   * CTAs:
     * Primary CTA: `Request a Consultation →` (scrolls to enquiry / redirects to contact)
     * Secondary CTA: `View Services`
@@ -105,7 +105,7 @@ graph TD
   * Clean card with: Full Name, Company, Phone Number, Project Brief, and `Submit Enquiry →` action.
   * Turnaround SLA banner: *"Typical response within 24 hours."*
 * **Global Footer:**
-  * Company summary, HQ address (Uttar Pradesh, India), Contact phone & email, quick links, copyright, and value proposition statement.
+  * Company summary, HQ address (India), Contact phone & email, quick links, copyright, and value proposition statement.
 
 ---
 
@@ -174,7 +174,7 @@ graph TD
 
 * **Hero & Our Story:**
   * Title: **"About Chitai Soft Automation"**
-  * Subtitle: *"An automation engineering company based in Uttar Pradesh, delivering reliable industrial control systems across India."*
+  * Subtitle: *"An automation engineering company delivering reliable industrial control systems across India."*
   * Story Narrative: Founded to bring dependable, rigorous engineering to Indian industry. Grounded in plant floor realities with hands-on site experience.
 * **4 Engineering Principles & Values:**
   1. **Technical Rigour:** Systems designed strictly to specification, thoroughly tested (FAT/SAT), with comprehensive schematics and documentation.
@@ -189,7 +189,7 @@ graph TD
   * 05: Remote Diagnostics
   * 06: Project Engineering (End-to-end FDS to SAT)
 * **Geographical Presence & Service Reach:**
-  * **Headquarters:** Uttar Pradesh, India
+  * **Headquarters:** India
   * **Project Coverage:** Pan-India on-site commissioning & deployment
   * **Response Time:** Guaranteed initial response within 24 hours
 
@@ -198,7 +198,7 @@ graph TD
 ### 4.5 Contact Us Page (`/contact.html`)
 
 * **Direct Contact Cards:**
-  * **Office Address:** Chitai Soft Automation, Uttar Pradesh, India
+  * **Office Address:** Chitai Soft Automation, India
   * **Phone:** `+91 9021682318`
   * **Email:** `chitaisoft@gmail.com` / `info@chitaisoftautomation.in`
   * **Working Hours:** Monday – Saturday, 9:00 AM – 6:00 PM IST

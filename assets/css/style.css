@@ -1050,6 +1050,23 @@ button, input, textarea, select {
   align-items: start;
 }
 
+.about-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.about-pillar-card {
+  padding: 24px;
+  transition: var(--transition);
+}
+
+.about-pillar-card:hover {
+  transform: translateY(-2px);
+  border-color: #cbd5e1;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
 .about-story-text {
   font-size: 1.05rem;
   color: var(--text-muted);
@@ -1362,8 +1379,12 @@ button, input, textarea, select {
    Responsive Breakpoints
    ========================================================================== */
 @media (max-width: 1200px) {
-  .grid-2, .grid-3, .grid-4, .primary-vertical-card, .enquiry-grid, .location-up-grid, .contact-layout-grid, .industry-detail-block, .industry-detail-block:nth-child(even) {
+  .grid-2, .grid-3, .grid-4, .primary-vertical-card, .enquiry-grid, .location-up-grid, .contact-layout-grid, .about-hero-grid, .industry-detail-block, .industry-detail-block:nth-child(even) {
     grid-template-columns: 1fr;
+  }
+
+  .about-hero-grid {
+    gap: 40px;
   }
 
   .industry-detail-block:nth-child(even) .industry-img-box {
@@ -1423,8 +1444,20 @@ button, input, textarea, select {
     font-size: 1rem;
   }
 
-  .form-group-row, .sub-industry-cards, .industry-bullets-grid, .capabilities-grid, .process-grid, .footer-top-grid {
+  .form-group-row, .sub-industry-cards, .industry-bullets-grid, .capabilities-grid, .process-grid, .footer-top-grid, .about-pillars-grid {
     grid-template-columns: 1fr;
+  }
+
+  .about-pillars-grid {
+    gap: 16px;
+  }
+
+  .about-pillar-card {
+    padding: 20px 18px !important;
+  }
+
+  .capability-card {
+    padding: 24px 20px !important;
   }
 
   .metrics-card {
