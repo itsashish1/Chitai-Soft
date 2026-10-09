@@ -43,25 +43,221 @@
     </div>
   </header>
 
-  <!-- Page Hero (Matches image5.png top) -->
+  <!-- Page Hero (Matches image5.png top + Live Telemetry & Metrics) -->
   <section class="circuit-bg" style="padding: 70px 0 50px; color: #ffffff;">
     <div class="container">
-      <div class="section-eyebrow white">WHAT WE DO</div>
-      <h1 class="section-title white" style="font-size: 3rem;">Our Services</h1>
-      <p class="section-lead white">
-        End-to-end automation engineering &mdash; from control architecture design through commissioning, integration, and ongoing support.
+      <!-- Live Telemetry Radar Pill -->
+      <div class="live-telemetry-pill">
+        <div class="radar-dot-wrapper">
+          <div class="radar-ring"></div>
+          <div class="radar-dot"></div>
+        </div>
+        <span>SYSTEM STATUS: ONLINE &bull; REAL-TIME OT TELEMETRY ACTIVE</span>
+      </div>
+
+      <div class="section-eyebrow white">ENGINEERING SERVICES &bull; INDUSTRIAL IOT &bull; AUTOMATION</div>
+      <h1 class="section-title white" style="font-size: 3rem; margin-bottom: 16px;">Our Services &amp; Systems</h1>
+      <p class="section-lead white" style="max-width: 920px;">
+        End-to-end automation engineering &mdash; from control architecture and custom panel manufacturing through multi-vendor PLC/SCADA programming and real-time Industrial IoT monitoring.
       </p>
 
+      <!-- Live Animated Counters Grid (Common with IOTMatrix metrics) -->
+      <div class="live-counter-grid">
+        <div class="counter-card">
+          <div class="counter-val" data-target="30" data-prefix="↓ " data-suffix="%">↓ 30%</div>
+          <div class="counter-label">Unplanned Downtime</div>
+          <div class="counter-sub">Via automated root-cause alerts &amp; predictive telemetry</div>
+        </div>
+        <div class="counter-card">
+          <div class="counter-val" data-target="15" data-prefix="↑ " data-suffix="%">↑ 15%</div>
+          <div class="counter-label">OEE Improvement</div>
+          <div class="counter-sub">Across availability, speed, and shift output tracking</div>
+        </div>
+        <div class="counter-card">
+          <div class="counter-val" data-target="99.8" data-prefix="" data-suffix="%" data-decimals="1">99.8%</div>
+          <div class="counter-label">Telemetry Availability</div>
+          <div class="counter-sub">Industrial-grade Edge Gateways with offline data buffering</div>
+        </div>
+        <div class="counter-card">
+          <div class="counter-val" data-target="0" data-prefix="" data-suffix="">0</div>
+          <div class="counter-label">Rip-And-Replace</div>
+          <div class="counter-sub">Non-intrusive retrofit with existing field PLCs &amp; sensors</div>
+        </div>
+      </div>
+
+      <!-- Protocols Interoperability Ribbon -->
+      <div class="protocol-ribbon">
+        <span style="font-size: 0.82rem; font-weight: 700; color: #93c5fd; letter-spacing: 0.08em; text-transform: uppercase;">Supported Industrial Protocols:</span>
+        <span class="protocol-badge">MODBUS TCP / RTU</span>
+        <span class="protocol-badge">OPC-UA / DA</span>
+        <span class="protocol-badge">MQTT (Sparkplug B)</span>
+        <span class="protocol-badge">ETHERNET/IP</span>
+        <span class="protocol-badge">PROFINET</span>
+        <span class="protocol-badge">RS-485 SERIAL</span>
+      </div>
+
+      <!-- Filter Navigation Tabs -->
       <div class="filter-tabs">
         <button class="filter-tab active" data-target="plc-scada">PLC &amp; SCADA</button>
-        <button class="filter-tab" data-target="iiot">INDUSTRIAL IOT</button>
+        <button class="filter-tab" data-target="machine-monitoring">MACHINE MONITORING</button>
+        <button class="filter-tab" data-target="energy-monitoring">ENERGY &amp; POWER</button>
         <button class="filter-tab" data-target="brands">SUPPORTED BRANDS</button>
+        <button class="filter-tab" data-target="iiot">INDUSTRIAL IOT</button>
+        <button class="filter-tab" data-target="how-it-works">HOW IT WORKS</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Moving Infinite Marquee Ticker (Continuous Loop) -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <div class="marquee-item"><span class="marquee-dot"></span> EMERSON DELTAV &amp; PACSYSTEMS</div>
+      <div class="marquee-item"><span class="marquee-dot"></span> SCHNEIDER ELECTRIC MODICON</div>
+      <div class="marquee-item"><span class="marquee-dot"></span> DELTA DVP &amp; DOP HMI</div>
+      <div class="marquee-item"><span class="marquee-dot"></span> RENU FLEXIPANELS</div>
+      <div class="marquee-item"><span class="marquee-dot"></span> MODBUS TCP &amp; RTU</div>
+      <div class="marquee-item"><span class="marquee-dot"></span> OPC-UA / DA HISTORIAN</div>
+      <div class="marquee-item"><span class="marquee-dot"></span> MQTT SPARKPLUG B</div>
+      <div class="marquee-item"><span class="marquee-dot"></span> OEE &amp; DOWNTIME TELEMETRY</div>
+      <div class="marquee-item"><span class="marquee-dot"></span> PREDICTIVE VIBRATION &amp; THERMAL</div>
+      <div class="marquee-item"><span class="marquee-dot"></span> ZERO RIP-AND-REPLACE RETROFIT</div>
+      <!-- Duplicate items for seamless continuous loop -->
+      <div class="marquee-item"><span class="marquee-dot"></span> EMERSON DELTAV &amp; PACSYSTEMS</div>
+      <div class="marquee-item"><span class="marquee-dot"></span> SCHNEIDER ELECTRIC MODICON</div>
+      <div class="marquee-item"><span class="marquee-dot"></span> DELTA DVP &amp; DOP HMI</div>
+      <div class="marquee-item"><span class="marquee-dot"></span> RENU FLEXIPANELS</div>
+      <div class="marquee-item"><span class="marquee-dot"></span> MODBUS TCP &amp; RTU</div>
+      <div class="marquee-item"><span class="marquee-dot"></span> OPC-UA / DA HISTORIAN</div>
+      <div class="marquee-item"><span class="marquee-dot"></span> MQTT SPARKPLUG B</div>
+      <div class="marquee-item"><span class="marquee-dot"></span> OEE &amp; DOWNTIME TELEMETRY</div>
+      <div class="marquee-item"><span class="marquee-dot"></span> PREDICTIVE VIBRATION &amp; THERMAL</div>
+      <div class="marquee-item"><span class="marquee-dot"></span> ZERO RIP-AND-REPLACE RETROFIT</div>
+    </div>
+  </div>
+
+  <!-- Interactive Sliding Showcase Section (Featured Systems In Action) -->
+  <section class="interactive-slider-section">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
+        <div>
+          <div class="section-eyebrow">
+            <span>&diamond; ENGINEERING SHOWCASE</span>
+          </div>
+          <h2 style="font-size: 2.1rem; font-weight: 800; color: var(--primary-navy);">Core Engineering Systems in Action</h2>
+        </div>
+        <div style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-muted); background: #e2e8f0; padding: 6px 14px; border-radius: 999px;">
+          &bull; AUTO-SLIDING ACTIVE &bull; HOVER TO PAUSE
+        </div>
+      </div>
+
+      <div class="slider-container">
+        <div class="slider-track">
+          <!-- Slide 1: SCADA -->
+          <div class="slider-slide">
+            <div class="slide-media">
+              <img src="assets/images/scada-control-room-hd.jpg" alt="Industrial SCADA Central Control Room Monitoring" loading="lazy">
+            </div>
+            <div class="slide-content">
+              <span class="slide-tag">01 / SUPERVISORY CONTROL</span>
+              <h3 class="slide-title">SCADA &amp; Centralized Plant Mimic Architecture</h3>
+              <p class="slide-desc">
+                High-availability supervisory control and data acquisition systems featuring multi-monitor operator stations, dynamic plant mimics, real-time alarm categorization, and historical trend logging.
+              </p>
+              <div class="slide-highlights">
+                <span class="slide-pill">Real-Time Mimics</span>
+                <span class="slide-pill">Historian Integration</span>
+                <span class="slide-pill">ISA 18.2 Alarm Mgmt</span>
+              </div>
+              <div>
+                <a href="#plc-scada" class="btn btn-primary" style="padding: 10px 22px; font-size: 0.88rem;">Explore SCADA Systems &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2: Control Panels -->
+          <div class="slider-slide">
+            <div class="slide-media">
+              <img src="assets/images/plc-control-panel-hd.jpg" alt="Custom Industrial Electrical PLC Control Panel" loading="lazy">
+            </div>
+            <div class="slide-content">
+              <span class="slide-tag">02 / HARDWARE FABRICATION</span>
+              <h3 class="slide-title">Custom PLC Control Panels &amp; FAT/SAT Testing</h3>
+              <p class="slide-desc">
+                Precision-engineered control enclosures with neat DIN-rail wiring, multi-vendor PLC racks, VFD integrations, power protection, and rigorous Factory Acceptance Testing (FAT).
+              </p>
+              <div class="slide-highlights">
+                <span class="slide-pill">IP55/IP65 Enclosures</span>
+                <span class="slide-pill">VFD &amp; Servo Drives</span>
+                <span class="slide-pill">IEC 61439 Standards</span>
+              </div>
+              <div>
+                <a href="#plc-scada" class="btn btn-primary" style="padding: 10px 22px; font-size: 0.88rem;">View Panel Capabilities &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3: IIoT & Machine Monitoring -->
+          <div class="slider-slide">
+            <div class="slide-media">
+              <img src="assets/images/iiot-smart-factory-hd.jpg" alt="Smart Factory Machine Monitoring Wireless IoT Sensors" loading="lazy">
+            </div>
+            <div class="slide-content">
+              <span class="slide-tag">03 / INDUSTRY 4.0</span>
+              <h3 class="slide-title">Predictive Machine Monitoring &amp; OEE Analytics</h3>
+              <p class="slide-desc">
+                Edge gateways and magnetic vibration/thermal sensors mounted directly to critical rotating assets. Track downtime reasons, benchmark shift productivity, and prevent sudden catastrophic motor failure.
+              </p>
+              <div class="slide-highlights">
+                <span class="slide-pill">Vibration &amp; Temp Telemetry</span>
+                <span class="slide-pill">Real-Time OEE</span>
+                <span class="slide-pill">SMS / WhatsApp Alerts</span>
+              </div>
+              <div>
+                <a href="#machine-monitoring" class="btn btn-primary" style="padding: 10px 22px; font-size: 0.88rem;">View Machine Telemetry &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 4: Energy Sub-metering -->
+          <div class="slider-slide">
+            <div class="slide-media">
+              <img src="assets/images/energy-submetering-hd.jpg" alt="Industrial Power Distribution Sub-metering Cabinet" loading="lazy">
+            </div>
+            <div class="slide-content">
+              <span class="slide-tag">04 / UTILITY INTELLIGENCE</span>
+              <h3 class="slide-title">Granular Energy Sub-Metering &amp; Demand Control</h3>
+              <p class="slide-desc">
+                Feeder-level power meters tracking kWh, harmonics, reactive power, and peak contract demand. Avoid utility penalties and optimize Diesel Generator vs. Grid power scheduling.
+              </p>
+              <div class="slide-highlights">
+                <span class="slide-pill">Feeder-Wise Sub-Metering</span>
+                <span class="slide-pill">Peak Demand Alerts</span>
+                <span class="slide-pill">DG Fuel Optimization</span>
+              </div>
+              <div>
+                <a href="#energy-monitoring" class="btn btn-primary" style="padding: 10px 22px; font-size: 0.88rem;">Explore Energy Solutions &rarr;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Arrows -->
+        <button class="slider-arrow prev" aria-label="Previous Slide">&larr;</button>
+        <button class="slider-arrow next" aria-label="Next Slide">&rarr;</button>
+
+        <!-- Dots -->
+        <div class="slider-dots">
+          <div class="slider-dot active"></div>
+          <div class="slider-dot"></div>
+          <div class="slider-dot"></div>
+          <div class="slider-dot"></div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Section 1: PLC & SCADA Systems (Matches image5.png middle) -->
-  <section id="plc-scada" class="section-padding">
+  <section id="plc-scada" class="section-padding reveal-on-scroll">
     <div class="container">
       <div style="margin-bottom: 36px;">
         <div class="section-eyebrow">
@@ -71,6 +267,26 @@
         <p class="section-lead">
           We design, programme, and commission PLC-based control systems and SCADA platforms for industrial plants. Our engineers work across all major automation vendors &mdash; delivering systems that are reliable, maintainable, and built to your process requirements.
         </p>
+      </div>
+
+      <!-- Visual Engineering Showcase Grid -->
+      <div class="service-visual-grid reveal-on-scroll">
+        <div class="service-img-frame">
+          <img src="assets/images/scada-control-room-hd.jpg" alt="High-Tech SCADA Control Room Operator Station" loading="lazy">
+          <div class="img-badge-overlay">&bull; LIVE SCADA MIMIC &bull; MULTI-STATION CENTRAL CONSOLE</div>
+        </div>
+        <div class="corner-card" style="margin-bottom: 0;">
+          <span class="step-badge" style="background: var(--primary-navy);">ENGINEERING EXCELLENCE</span>
+          <h3 style="font-size: 1.35rem; font-weight: 800; color: var(--primary-navy); margin: 8px 0 12px;">Multi-Vendor Architecture &amp; High-Availability Control</h3>
+          <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px;">
+            Whether upgrading legacy DCS systems or commissioning greenfield PLC infrastructure, we engineer redundant controller pairs, distributed I/O topologies, and high-speed industrial Ethernet networks that maintain continuous 24/7 process stability.
+          </p>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <span class="pipeline-tag">IEC 61131-3 Standard</span>
+            <span class="pipeline-tag">Redundant Ethernet/IP</span>
+            <span class="pipeline-tag">FAT / SAT Testing</span>
+          </div>
+        </div>
       </div>
 
       <div class="grid-2">
@@ -314,6 +530,349 @@
     </div>
   </section>
 
+  <!-- Section: Machine Monitoring System (Common with IOTMatrix MachineMatrix) -->
+  <section id="machine-monitoring" class="section-padding" style="background-color: #f8fafc; border-top: 1px solid #e2e8f0;">
+    <div class="container">
+      <div style="margin-bottom: 36px;">
+        <div class="section-eyebrow">
+          <span>&diamond; SHOP FLOOR VISIBILITY &bull; MACHINE MONITORING</span>
+        </div>
+        <h2 class="section-title">Industrial Machine Monitoring &amp; OEE Analytics</h2>
+        <p class="section-lead">
+          Gain 100% operational visibility over plant machinery without expensive machine replacements. Track live status, analyze shift performance, and diagnose root causes of downtime in real time.
+        </p>
+      </div>
+
+      <!-- Machine Monitoring Visual Showcase -->
+      <div class="service-visual-grid reveal-on-scroll">
+        <div class="service-img-frame">
+          <img src="assets/images/iiot-smart-factory-hd.jpg" alt="Smart Factory Edge Gateway and Wireless Vibration Sensors" loading="lazy">
+          <div class="img-badge-overlay">&bull; EDGE GATEWAY &bull; VIBRATION &amp; THERMAL TELEMETRY</div>
+        </div>
+        <div class="corner-card" style="margin-bottom: 0;">
+          <span class="step-badge" style="background: #16a34a;">PLUG &amp; PLAY RETROFIT</span>
+          <h3 style="font-size: 1.35rem; font-weight: 800; color: var(--primary-navy); margin: 8px 0 12px;">Wireless Sensor Integration on Rotating Assets</h3>
+          <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px;">
+            Our magnetic mount tri-axial vibration and surface temperature sensors deploy in minutes on critical plant motors, pumps, and gearboxes. They continuously stream FFT frequency spectra to edge gateways, detecting early-stage bearing flaking and misalignment before costly catastrophic seizure occurs.
+          </p>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <span class="pipeline-tag">Tri-Axial Vibration</span>
+            <span class="pipeline-tag">Thermal Warning Alerts</span>
+            <span class="pipeline-tag">Zero Machine Downtime Setup</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="corner-card">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-main);">
+              Real-Time Machine Status &amp; Downtime Tracking
+            </h3>
+            <span class="step-badge" style="background: #0284c7;">LIVE TELEMETRY</span>
+          </div>
+          <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px;">
+            Continuous monitoring of machine states (Running, Idle, Breakdown, Tool Change, Setup). Automatically classifies stoppage reasons and logs MTTR (Mean Time to Repair) and MTBF (Mean Time Between Failures).
+          </p>
+          <ul class="feature-checklist">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Instant alerts via SMS/WhatsApp/Email on unplanned machine stoppages</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Color-coded shopfloor visual dashboards for operators and plant heads</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="corner-card">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-main);">
+              OEE &amp; Shift Production Analytics
+            </h3>
+            <span class="step-badge" style="background: #16a34a;">KPI ENGINE</span>
+          </div>
+          <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px;">
+            Accurately calculate Overall Equipment Effectiveness across Availability, Performance, and Quality. Identify micro-stoppages, speed loss, and reject counts shift-by-shift.
+          </p>
+          <ul class="feature-checklist">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Target vs. Actual piece production counters with cycle time analysis</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Automated PDF/Excel end-of-shift productivity reports sent directly to management</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="corner-card">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-main);">
+              Condition Monitoring &amp; Predictive Maintenance
+            </h3>
+            <span class="step-badge" style="background: #d97706;">PREDICTIVE AI</span>
+          </div>
+          <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px;">
+            Continuous vibration, surface temperature, and motor current signature analysis (MCSA) for critical motors, blowers, gearboxes, and pumps.
+          </p>
+          <ul class="feature-checklist">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Detect bearing degradation, cavitation, and misalignment weeks before breakdown</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Dynamic threshold rules that adjust based on operating load and RPM</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="corner-card">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-main);">
+              Non-Intrusive Legacy Machine Retrofitting
+            </h3>
+            <span class="step-badge" style="background: var(--primary-navy);">RETROFIT</span>
+          </div>
+          <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px;">
+            Connect older machines that lack modern networking. We deploy external CTs, proximity sensors, optical counters, and edge converters without altering warranty or machine wiring.
+          </p>
+          <ul class="feature-checklist">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Zero disruption to existing plant production schedules during setup</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Compatible with CNC machines, hydraulic presses, injection molding, and packaging lines</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Smart Energy Monitoring & Power Management (Common with IOTMatrix EnergyMatrix) -->
+  <section id="energy-monitoring" class="section-padding" style="background-color: #ffffff; border-top: 1px solid #e2e8f0;">
+    <div class="container">
+      <div style="margin-bottom: 36px;">
+        <div class="section-eyebrow">
+          <span>&diamond; UTILITY &amp; RESOURCE EFFICIENCY</span>
+        </div>
+        <h2 class="section-title">Smart Energy Monitoring &amp; Power Analytics</h2>
+        <p class="section-lead">
+          Cut factory utility bills and prevent power quality penalties. Our sub-metering and IoT power management system tracks electrical loads from main incomers down to individual feeder panels and high-horsepower motors.
+        </p>
+      </div>
+
+      <!-- Energy Sub-metering Visual Showcase -->
+      <div class="service-visual-grid reveal-on-scroll">
+        <div class="service-img-frame">
+          <img src="assets/images/energy-submetering-hd.jpg" alt="Industrial Power Distribution Sub-metering Cabinet with Digital Meters" loading="lazy">
+          <div class="img-badge-overlay">&bull; FEEDER SUB-METERING &bull; KWH &amp; POWER FACTOR ANALYTICS</div>
+        </div>
+        <div class="corner-card" style="margin-bottom: 0;">
+          <span class="step-badge" style="background: #e11d48;">DEMAND INTELLIGENCE</span>
+          <h3 style="font-size: 1.35rem; font-weight: 800; color: var(--primary-navy); margin: 8px 0 12px;">Comprehensive Circuit-Level Power Telemetry</h3>
+          <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px;">
+            Replace manual logbooks with sub-second digital energy telemetry across high-power circuits. Continuously audit energy wastage, monitor power factor to avoid utility penalties, and benchmark energy consumption per metric ton of manufactured product.
+          </p>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <span class="pipeline-tag">Active &amp; Reactive kWh</span>
+            <span class="pipeline-tag">Contract Demand Alarms</span>
+            <span class="pipeline-tag">Power Factor Penalty Protection</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="corner-card">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-main);">
+              Circuit-Level Sub-Metering &amp; Feeder Analytics
+            </h3>
+            <span class="step-badge" style="background: #0284c7;">SUB-METERING</span>
+          </div>
+          <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px;">
+            Granular multi-parameter metering across 3-phase circuits: Active (kWh), Reactive (kVARh), Voltage, Current, Total Harmonic Distortion (THD), and Power Factor (PF).
+          </p>
+          <ul class="feature-checklist">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Allocate specific energy costs to individual production batches or departments</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Detect power unbalance, loose neutral connections, and harmonic heating</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="corner-card">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-main);">
+              Peak Demand Control &amp; Penalty Prevention
+            </h3>
+            <span class="step-badge" style="background: #e11d48;">DEMAND CONTROL</span>
+          </div>
+          <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px;">
+            Automated tracking of 15-minute sliding window kVA demand. Receive proactive warnings before exceeding sanctioned contract demand to prevent massive utility surcharges.
+          </p>
+          <ul class="feature-checklist">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Configurable automated load-shedding for non-critical auxiliary equipment</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>TOD (Time of Day) tariff analysis to schedule heavy loads during off-peak hours</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="corner-card">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-main);">
+              DG Set Fuel &amp; Solar Hybrid Telemetry
+            </h3>
+            <span class="step-badge" style="background: #16a34a;">DG &bull; SOLAR</span>
+          </div>
+          <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px;">
+            Monitor diesel generator run-hours, fuel level telemetry, specific fuel consumption (SFC in liters/kWh), battery voltage, and solar PV inverter generation in one unified dashboard.
+          </p>
+          <ul class="feature-checklist">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Detect sudden fuel drop anomalies and pilferage instantly</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Grid vs. DG vs. Solar source optimization to minimize diesel expenditure</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="corner-card">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-main);">
+              Water, Air &amp; Compressor Energy Optimization
+            </h3>
+            <span class="step-badge" style="background: #0284c7;">UTILITIES</span>
+          </div>
+          <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px;">
+            Compressed air and water pumping represent up to 40% of plant power consumption. Track air compressor load/unload ratios, CFM output, and pump flow vs. kW consumed.
+          </p>
+          <ul class="feature-checklist">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Identify compressed air leaks and artificial demand losses during non-production hours</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Smart duty/standby pump scheduling driven by tank levels and dynamic head pressure</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Technical Architecture Flow ("How It Works") -->
+  <section id="how-it-works" class="section-padding" style="background-color: #f8fafc; border-top: 1px solid #e2e8f0;">
+    <div class="container">
+      <div class="pipeline-header">
+        <div class="section-eyebrow">
+          <span>&diamond; INTEGRATION ARCHITECTURE</span>
+        </div>
+        <h2 class="section-title">How It Works: Shop Floor to Cloud</h2>
+        <p class="section-lead" style="margin: 0 auto;">
+          A proven, deterministic 4-stage pipeline that bridges operational technology (OT) with executive management dashboards without altering your core PLC safety logic.
+        </p>
+      </div>
+
+      <div class="pipeline-flow">
+        <!-- Stage 1 -->
+        <div class="pipeline-step">
+          <span class="step-badge">STAGE 01</span>
+          <h3 class="pipeline-step-title">Field Devices &amp; Sensors</h3>
+          <p class="pipeline-step-desc">
+            Raw signals captured from PLCs, temperature probes, vibration sensors, multi-function power meters, and I/O modules.
+          </p>
+          <div class="pipeline-tags">
+            <span class="pipeline-tag">4-20mA</span>
+            <span class="pipeline-tag">RS-485</span>
+            <span class="pipeline-tag">CTs &amp; PTs</span>
+            <span class="pipeline-tag">Thermocouples</span>
+          </div>
+        </div>
+
+        <!-- Stage 2 -->
+        <div class="pipeline-step">
+          <span class="step-badge">STAGE 02</span>
+          <h3 class="pipeline-step-title">Industrial Edge Gateways</h3>
+          <p class="pipeline-step-desc">
+            DIN-rail mount edge computers poll data locally, perform protocol normalization, filter noise, and buffer data offline if network drops.
+          </p>
+          <div class="pipeline-tags">
+            <span class="pipeline-tag">Modbus RTU/TCP</span>
+            <span class="pipeline-tag">OPC-UA</span>
+            <span class="pipeline-tag">Edge Filtering</span>
+            <span class="pipeline-tag">SSL Encryption</span>
+          </div>
+        </div>
+
+        <!-- Stage 3 -->
+        <div class="pipeline-step">
+          <span class="step-badge">STAGE 03</span>
+          <h3 class="pipeline-step-title">SCADA &amp; Cloud Engine</h3>
+          <p class="pipeline-step-desc">
+            Centralized telemetry ingestion, time-series historians, automated anomaly detection algorithms, and threshold alert triggers.
+          </p>
+          <div class="pipeline-tags">
+            <span class="pipeline-tag">Time-Series DB</span>
+            <span class="pipeline-tag">MQTT Sparkplug</span>
+            <span class="pipeline-tag">REST APIs</span>
+            <span class="pipeline-tag">Rule Engine</span>
+          </div>
+        </div>
+
+        <!-- Stage 4 -->
+        <div class="pipeline-step">
+          <span class="step-badge">STAGE 04</span>
+          <h3 class="pipeline-step-title">Operations Cockpit &amp; Control</h3>
+          <p class="pipeline-step-desc">
+            Role-based web/mobile dashboards for operators, engineers, and plant managers &mdash; with automated shift reports and alert dispatch.
+          </p>
+          <div class="pipeline-tags">
+            <span class="pipeline-tag">Live OEE</span>
+            <span class="pipeline-tag">Downtime Logs</span>
+            <span class="pipeline-tag">SMS / WhatsApp</span>
+            <span class="pipeline-tag">Closed-Loop Controls</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Plant Audit Consultation Banner -->
+      <div class="audit-cta-card">
+        <div>
+          <span style="font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.1em; color: #38bdf8; text-transform: uppercase;">FREE PLANT FEASIBILITY STUDY</span>
+          <h3 style="font-size: 1.8rem; font-weight: 800; margin: 8px 0 12px; color: #ffffff;">Ready to Stop Plant Downtime &amp; Optimize Energy Costs?</h3>
+          <p style="font-size: 0.95rem; color: #cbd5e1; max-width: 680px; line-height: 1.5;">
+            Our senior automation engineers conduct on-site or remote architecture evaluations to assess machine connectivity, sensor requirements, and payback timeline within 24 hours.
+          </p>
+        </div>
+        <div style="flex-shrink: 0;">
+          <a href="contact.html" class="btn btn-primary" style="background: #00b4d8; color: #07234e; font-weight: 700; border: none; padding: 14px 28px; box-shadow: 0 4px 20px rgba(0, 180, 216, 0.4);">
+            Book a Technical Consultation &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Discuss Your Automation Project CTA (Matches image7.png) -->
   <section class="cta-banner-section circuit-bg">
     <div class="container">
@@ -363,10 +922,11 @@
           <h4 class="footer-col-title">SERVICES</h4>
           <ul class="footer-links">
             <li><a href="services.html#plc-scada" class="footer-link">PLC &amp; SCADA Systems</a></li>
-            <li><a href="services.html#iiot" class="footer-link">Industrial IoT</a></li>
-            <li><a href="services.html#iiot" class="footer-link">Smart Manufacturing</a></li>
-            <li><a href="services.html#control-panels" class="footer-link">Control Panel Design</a></li>
+            <li><a href="services.html#machine-monitoring" class="footer-link">Machine Monitoring &amp; OEE</a></li>
+            <li><a href="services.html#energy-monitoring" class="footer-link">Energy &amp; Power Analytics</a></li>
+            <li><a href="services.html#iiot" class="footer-link">Industrial IoT &amp; Industry 4.0</a></li>
             <li><a href="services.html#brands" class="footer-link">Supported Brands (Emerson, Schneider...)</a></li>
+            <li><a href="services.html#how-it-works" class="footer-link">Architecture &amp; How It Works</a></li>
           </ul>
         </div>
 
