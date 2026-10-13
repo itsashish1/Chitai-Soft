@@ -3,10 +3,74 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us | Chitai Soft Automation</title>
-  <meta name="description" content="Get in touch with Chitai Soft Automation engineers for PLC, SCADA, control panel, and industrial IoT solutions. Fast response within 24 hours.">
+  <title>Contact Chitai Soft Automation | Technical Inquiry &amp; Consultation</title>
+  <meta name="description" content="Get in touch with Chitai Soft Automation engineers for PLC programming, SCADA development, control panels, and IIoT systems. Fast response within 24 hours.">
+  <meta name="keywords" content="Contact Chitai Soft Automation, automation RFQ, PLC consultation, SCADA inquiry India, industrial engineering contact">
+  <link rel="canonical" href="https://chitaisoftautomation.in/contact.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chitaisoftautomation.in/contact.html">
+  <meta property="og:title" content="Contact Chitai Soft Automation | Consultation &amp; RFQ">
+  <meta property="og:description" content="Talk to senior automation engineers. Response within 24 hours for PLC, SCADA, Control Panel &amp; IIoT projects across India.">
+  <meta property="og:image" content="https://chitaisoftautomation.in/assets/images/image12.png">
+  <meta property="og:site_name" content="Chitai Soft Automation">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://chitaisoftautomation.in/contact.html">
+  <meta name="twitter:title" content="Contact Chitai Soft Automation | Consultation &amp; RFQ">
+  <meta name="twitter:description" content="Talk to senior automation engineers. Response within 24 hours for projects across India.">
+  <meta name="twitter:image" content="https://chitaisoftautomation.in/assets/images/image12.png">
+
+  <!-- Structured Data: Breadcrumb & ContactPage Schema (Google AI Mode / GEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://chitaisoftautomation.in/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Contact",
+            "item": "https://chitaisoftautomation.in/contact.html"
+          }
+        ]
+      },
+      {
+        "@type": "ContactPage",
+        "@id": "https://chitaisoftautomation.in/contact.html#contact",
+        "name": "Contact Chitai Soft Automation",
+        "url": "https://chitaisoftautomation.in/contact.html",
+        "description": "Direct communication channel for technical RFQ, control panel feasibility, and industrial automation project inquiries.",
+        "mainEntity": {
+          "@type": "LocalBusiness",
+          "name": "Chitai Soft Automation",
+          "telephone": "+91-9021682318",
+          "email": "info@chitaisoftautomation.in",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "IN"
+          },
+          "openingHours": "Mo-Sa 09:00-18:00"
+        }
+      }
+    ]
+  }
+  </script>
+
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="icon" type="image/png" href="assets/images/image13.png">
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
 
@@ -126,32 +190,32 @@
         <!-- Right: Send an Enquiry Form Card (Corner Brackets) -->
         <div class="enquiry-form-card corner-card">
           <h2 class="form-title">Send an Enquiry</h2>
-          <form class="enquiry-form">
+          <form class="enquiry-form" id="contact-enquiry-form">
             <div class="form-group-row">
               <div class="form-group">
                 <label class="form-label" for="contact-fullname">FULL NAME *</label>
-                <input class="form-input" id="contact-fullname" type="text" placeholder="Your name" required>
+                <input class="form-input" id="contact-fullname" name="user_name" type="text" placeholder="Your name" required>
               </div>
               <div class="form-group">
                 <label class="form-label" for="contact-email">EMAIL *</label>
-                <input class="form-input" id="contact-email" type="email" placeholder="you@company.com" required>
+                <input class="form-input" id="contact-email" name="user_email" type="email" placeholder="you@company.com" required>
               </div>
             </div>
 
             <div class="form-group-row">
               <div class="form-group">
                 <label class="form-label" for="contact-company">COMPANY</label>
-                <input class="form-input" id="contact-company" type="text" placeholder="Your company">
+                <input class="form-input" id="contact-company" name="user_company" type="text" placeholder="Your company">
               </div>
               <div class="form-group">
                 <label class="form-label" for="contact-phone">PHONE</label>
-                <input class="form-input" id="contact-phone" type="tel" placeholder="+91 XXXXX XXXXX">
+                <input class="form-input" id="contact-phone" name="user_phone" type="tel" placeholder="+91 XXXXX XXXXX">
               </div>
             </div>
 
             <div class="form-group">
               <label class="form-label" for="contact-service">SERVICE OF INTEREST</label>
-              <select class="form-select" id="contact-service">
+              <select class="form-select" id="contact-service" name="service_interest">
                 <option value="" selected>Select a service...</option>
                 <option value="plc-scada">PLC &amp; SCADA Systems</option>
                 <option value="iiot">Industrial IoT &amp; Smart Manufacturing</option>
@@ -166,7 +230,7 @@
 
             <div class="form-group">
               <label class="form-label" for="contact-brief">PROJECT BRIEF *</label>
-              <textarea class="form-textarea" id="contact-brief" style="min-height: 120px;" placeholder="Describe your automation requirements, current setup, and any specific challenges..." required></textarea>
+              <textarea class="form-textarea" id="contact-brief" name="project_brief" style="min-height: 120px;" placeholder="Describe your automation requirements, current setup, and any specific challenges..." required></textarea>
             </div>
 
             <button type="submit" class="btn btn-solid-blue" style="width: 100%; margin-top: 10px;">

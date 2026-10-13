@@ -238,3 +238,96 @@ graph TD
 * [ ] **Milestone 5:** Products & Services (`services.html`) with Brand Spotlights (Emerson, Renu, Delta, Schneider)
 * [ ] **Milestone 6:** Industries (`industries.html`), About (`about.html`), and Contact (`contact.html`)
 * [ ] **Milestone 7:** Testing, Verification, Responsive Quality Assurance & Final Handover
+
+---
+
+## 7. Coming Soon: Google Search & Google AI Mode (GEO) Optimization Roadmap
+
+To ensure **Chitai Soft Automation** ranks prominently on standard Google Search results and is actively cited in **Google AI Mode (Google AI Overviews / Gemini Search)**, the following technical and content enhancements are scheduled for upcoming release cycles:
+
+### 7.1 Google AI Mode & Generative Engine Optimization (GEO)
+AI Overviews prioritize structured, direct, authoritative, and fact-dense content. The upcoming implementation will incorporate:
+
+1. **Structured Data & Semantic Entity Graph (Schema Markup):**
+   * **Organization Schema:** Official entity name, verified logo, corporate identity, official contact point, and social profiles.
+   * **LocalBusiness Schema:** Headquarters location, operational geography (Pan-India), contact numbers, and operating hours.
+   * **Service Schema:** Granular machine-readable definitions for each core service (PLC Programming, SCADA Systems, Control Panel Fabrication, Industrial IoT).
+   * **FAQPage Schema:** Embedded Q&A data directly consumable by AI crawlers to answer conversational technical search queries.
+   * **BreadcrumbList Schema:** Hierarchical site navigation signals to help generative engines understand relationship depth.
+
+2. **Direct Answer Architecture & High-Intent Q&A:**
+   * Dedicated FAQ modules on `/services.html` and `/industries.html` addressing conversational queries (e.g., *"How to integrate Industrial IoT with legacy PLCs?"*, *"Best SCADA automation company for manufacturing in India"*).
+   * Snappy, 2–3 sentence direct answers followed by detailed technical breakdowns for optimal AI snippet extraction.
+
+3. **Scannable & Fact-Dense Content Formatting:**
+   * Structured bullet lists, delivery lifecycle stages, and comparison matrices across all engineering modules.
+   * Quantifiable operational impact metrics (e.g., downtime reduction %, OEE improvements, supported baud rates, communication protocols like OPC-UA and Modbus).
+
+4. **E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) Signals:**
+   * Documented engineering case studies detailing problem statement, control architecture deployed, and verified operational results.
+   * Explicit OEM vendor technology competency mapping (Emerson, Renu, Delta, Schneider Electric).
+   * Industry standard compliance highlights (IEC 61131-3, IEC 61508 / 61511 SIS, ISA-88, ISO safety standards).
+
+---
+
+### 7.2 Core Technical SEO & Crawling Infrastructure
+Standard Google search indexing prerequisites to ensure 100% crawl accessibility:
+
+1. **Crawler Configuration & Sitemaps:**
+   * **`sitemap.xml`:** Dynamic/static XML sitemap detailing all canonical pages, priority tiers, and last-modified timestamps submitted to Google Search Console.
+   * **`robots.txt`:** Explicit crawl allowances for Googlebot, Bingbot, and AI search crawlers.
+
+2. **On-Page Metadata Uniformity:**
+   * Unique, intent-driven **Title Tags** combining service specialization, target geography, and brand (e.g., *"PLC & SCADA Automation Services India | Chitai Soft Automation"*).
+   * Compelling **Meta Descriptions** under 160 characters with clear engineering value propositions and call-to-actions.
+   * **Canonical URLs (`rel="canonical"`):** Strict canonical tags on every page to prevent duplicate content flags.
+   * **Open Graph (OG) & Twitter Cards:** Rich preview image, title, and description tags for social sharing and knowledge cards.
+   * **Descriptive Image Alt Attributes:** Semantic, keyword-rich alternative text on all equipment, diagrams, and architecture graphics.
+
+---
+
+### 7.3 External Brand Signals & Knowledge Graph Authority
+Off-page signals required for Google AI to validate business authenticity:
+
+1. **Google Business Profile (GBP):**
+   * Verified local business profile under *Industrial Automation & Control Systems*.
+   * Verified contact phone, address, operating hours, project photos, and customer feedback.
+
+2. **B2B Industrial Directory & Citation Sync:**
+   * Consistent NAP (Name, Address, Phone) citation profile across major B2B portals (IndiaMART, TradeIndia, LinkedIn Corporate Page, Crunchbase).
+
+3. **Brand Authority & Backlink Acquisition:**
+   * Technical articles and industrial case studies linking back to service and industry landing pages.
+
+---
+
+### 7.4 Serverless Inquiry Dispatch: EmailJS Integration Architecture
+To enable real-time inquiry delivery without requiring a dedicated backend or server maintenance (perfectly matching Vercel's static hosting environment), EmailJS will be integrated to power all website forms:
+
+1. **Target Forms & Workflows:**
+   * **Quick Plant Inquiry Form (`/index.html`):** Fast inquiry dispatch with Name, Company, Phone, and Project Brief.
+   * **Technical RFQ & Consultation Form (`/contact.html`):** Comprehensive inquiry capture including Work Email, Company, Service of Interest, and Detailed Scope.
+
+2. **Dual-Dispatch Automation (Admin Notification + Client Auto-Reply):**
+   * **Template 1 (Internal Admin Alert):** Dispatches an instant, formatted email notification to `chitaisoft@gmail.com` and `info@chitaisoftautomation.in` with complete client and plant project metadata.
+   * **Template 2 (Automated Client Confirmation):** Sends an immediate professional branded acknowledgment back to the prospective client confirming message receipt and reaffirming the company's 24-hour engineering response SLA.
+
+3. **Technical & Security Specifications:**
+   * **Client-Side SDK:** Zero backend overhead; executes via lightweight EmailJS browser SDK.
+   * **Credential Security:** Secure usage of Service ID, Template IDs, and Public API Key (no email passwords or sensitive server credentials exposed in client-side code).
+   * **Spam & Abuse Mitigation:** Native Google reCAPTCHA integration to block automated bot submissions and malicious spam.
+   * **Interactive UI Feedback:** Smooth submit-state handling (button loading spinner, disabled state during flight, animated success toast/modal, and error retry prompt).
+
+---
+
+### 7.5 Implementation Milestones Progress
+
+* [x] **Phase A (Technical Setup):** Generate and deploy `sitemap.xml` and `robots.txt` (Completed)
+* [ ] **Phase B (Search Console):** Setup Google Search Console & Bing Webmaster Tools verification (Awaiting live domain DNS verification)
+* [x] **Phase C (Metadata & SEO):** Add unique Meta Titles, Meta Descriptions, Canonical links, and Open Graph tags across all 5 pages (Completed)
+* [x] **Phase D (Schema Markup):** Implement Organization, LocalBusiness, Service, and FAQ JSON-LD schemas (Completed)
+* [x] **Phase E (Content & GEO):** Integrate technical FAQ sections and structured metric tables for AI Overviews (Completed)
+* [ ] **Phase F (Authority & Maps):** Launch and verify Google Business Profile and synchronize B2B directory citations
+* [x] **Phase G (Inquiry Automation):** Configure EmailJS client-side architecture, parameters, form handlers, and non-intrusive UI toast feedback states (Completed)
+
+

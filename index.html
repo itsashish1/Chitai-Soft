@@ -3,10 +3,93 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chitai Soft Automation | Precision Automation & Intelligent Control</title>
-  <meta name="description" content="PLC & SCADA systems and Industrial IoT solutions engineered for power generation, oil & gas operators, and manufacturing across India.">
+  <title>Chitai Soft Automation | Precision Automation &amp; Intelligent Control</title>
+  <meta name="description" content="PLC &amp; SCADA systems, Control Panel design, and Industrial IoT solutions engineered for power generation, oil &amp; gas, and process manufacturing across India.">
+  <meta name="keywords" content="Chitai Soft Automation, industrial automation India, PLC SCADA systems, Emerson DeltaV, Schneider Modicon, Delta PLC, Renu Electronics, Industrial IoT, control panels">
+  <link rel="canonical" href="https://chitaisoftautomation.in/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chitaisoftautomation.in/">
+  <meta property="og:title" content="Chitai Soft Automation | Precision Automation &amp; Intelligent Control">
+  <meta property="og:description" content="PLC &amp; SCADA systems and Industrial IoT solutions engineered for power generation, oil &amp; gas operators, and manufacturing across India.">
+  <meta property="og:image" content="https://chitaisoftautomation.in/assets/images/scada-control-room-hd.jpg">
+  <meta property="og:site_name" content="Chitai Soft Automation">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://chitaisoftautomation.in/">
+  <meta name="twitter:title" content="Chitai Soft Automation | Precision Automation &amp; Intelligent Control">
+  <meta name="twitter:description" content="Engineering-grade PLC, SCADA, Control Panel &amp; IIoT solutions across India. 24-hr engineering response.">
+  <meta name="twitter:image" content="https://chitaisoftautomation.in/assets/images/scada-control-room-hd.jpg">
+
+  <!-- Structured Data: Organization & LocalBusiness & WebSite (Google AI / GEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://chitaisoftautomation.in/#organization",
+        "name": "Chitai Soft Automation",
+        "url": "https://chitaisoftautomation.in/",
+        "logo": "https://chitaisoftautomation.in/assets/images/image13.png",
+        "image": "https://chitaisoftautomation.in/assets/images/scada-control-room-hd.jpg",
+        "description": "Industrial automation and engineering solutions provider delivering reliable control systems, PLC & SCADA integration, and Industrial IoT across India.",
+        "email": "info@chitaisoftautomation.in",
+        "telephone": "+91-9021682318",
+        "areaServed": {
+          "@type": "Country",
+          "name": "India"
+        },
+        "knowsAbout": [
+          "PLC Programming",
+          "SCADA Systems",
+          "Industrial IoT",
+          "Control Panel Design",
+          "Emerson DeltaV",
+          "Schneider Electric Modicon",
+          "Delta Automation",
+          "Renu Electronics"
+        ]
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://chitaisoftautomation.in/#localbusiness",
+        "name": "Chitai Soft Automation",
+        "image": "https://chitaisoftautomation.in/assets/images/scada-control-room-hd.jpg",
+        "telephone": "+91-9021682318",
+        "email": "info@chitaisoftautomation.in",
+        "url": "https://chitaisoftautomation.in/",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "IN"
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://chitaisoftautomation.in/#website",
+        "url": "https://chitaisoftautomation.in/",
+        "name": "Chitai Soft Automation",
+        "publisher": {
+          "@id": "https://chitaisoftautomation.in/#organization"
+        }
+      }
+    ]
+  }
+  </script>
+
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="icon" type="image/png" href="assets/images/image13.png">
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
 
@@ -311,26 +394,26 @@
         <!-- Right: Enquiry Form Card -->
         <div class="enquiry-form-card corner-card">
           <h3 class="form-title">Send an Enquiry</h3>
-          <form class="enquiry-form">
+          <form class="enquiry-form" id="home-enquiry-form">
             <div class="form-group-row">
               <div class="form-group">
                 <label class="form-label" for="home-fullname">FULL NAME *</label>
-                <input class="form-input" id="home-fullname" type="text" placeholder="Your name" required>
+                <input class="form-input" id="home-fullname" name="user_name" type="text" placeholder="Your name" required>
               </div>
               <div class="form-group">
                 <label class="form-label" for="home-company">COMPANY</label>
-                <input class="form-input" id="home-company" type="text" placeholder="Your company">
+                <input class="form-input" id="home-company" name="user_company" type="text" placeholder="Your company">
               </div>
             </div>
 
             <div class="form-group">
               <label class="form-label" for="home-phone">PHONE NUMBER *</label>
-              <input class="form-input" id="home-phone" type="tel" placeholder="+91 XXXXX XXXXX" required>
+              <input class="form-input" id="home-phone" name="user_phone" type="tel" placeholder="+91 XXXXX XXXXX" required>
             </div>
 
             <div class="form-group">
               <label class="form-label" for="home-project">PROJECT BRIEF *</label>
-              <textarea class="form-textarea" id="home-project" placeholder="Describe your automation requirements, plant process, or brand preference..." required></textarea>
+              <textarea class="form-textarea" id="home-project" name="project_brief" placeholder="Describe your automation requirements, plant process, or brand preference..." required></textarea>
             </div>
 
             <button type="submit" class="btn btn-solid-blue" style="width: 100%; margin-top: 8px;">

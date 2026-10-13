@@ -42,10 +42,46 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 3. Enquiry Form Handling
+  // EmailJS Configuration (PRD Section 7.4)
+  const EMAILJS_CONFIG = {
+    // Provide live keys from emailjs.com dashboard when ready:
+    publicKey: "YOUR_EMAILJS_PUBLIC_KEY",
+    serviceId: "service_chitaisoft",
+    templateIdAdmin: "template_admin_alert",
+    templateIdClient: "template_client_reply"
+  };
+
+  // Initialize EmailJS if public key is configured
+  if (window.emailjs && EMAILJS_CONFIG.publicKey && EMAILJS_CONFIG.publicKey !== "YOUR_EMAILJS_PUBLIC_KEY") {
+    try {
+      emailjs.init({ publicKey: EMAILJS_CONFIG.publicKey });
+    } catch (err) {
+      console.warn("EmailJS init note:", err);
+    }
+  }
+
+  // Toast Notification Helper
+  function showToast(message, type = 'success') {
+    let toast = document.querySelector('.toast-notification');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.className = 'toast-notification';
+      document.body.appendChild(toast);
+    }
+    toast.className = `toast-notification ${type} show`;
+    toast.innerHTML = `
+      <span style="font-weight: 700; font-size: 1.1rem; color: ${type === 'success' ? '#22c55e' : '#ef4444'};">${type === 'success' ? '✓' : '⚠'}</span>
+      <span>${message}</span>
+    `;
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, 4500);
+  }
+
+  // 3. Enquiry Form Handling (Live EmailJS + Fallback Simulator)
   const enquiryForms = document.querySelectorAll('.enquiry-form');
   enquiryForms.forEach(form => {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       
       const submitBtn = form.querySelector('button[type="submit"]');
@@ -56,7 +92,37 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.innerText = 'Transmitting Enquiry...';
       }
 
-      setTimeout(() => {
+      // Collect form payload
+      const formData = new FormData(form);
+      const payload = {
+        user_name: formData.get('user_name') || form.querySelector('[name="user_name"]')?.value || '',
+        user_email: formData.get('user_email') || form.querySelector('[name="user_email"]')?.value || 'N/A',
+        user_company: formData.get('user_company') || form.querySelector('[name="user_company"]')?.value || 'N/A',
+        user_phone: formData.get('user_phone') || form.querySelector('[name="user_phone"]')?.value || '',
+        service_interest: formData.get('service_interest') || form.querySelector('[name="service_interest"]')?.value || 'General Automation',
+        project_brief: formData.get('project_brief') || form.querySelector('[name="project_brief"]')?.value || '',
+        page_source: window.location.pathname.split('/').pop() || 'index.html',
+        timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+      };
+
+      const isLiveEmailConfigured = window.emailjs &&
+        EMAILJS_CONFIG.publicKey &&
+        EMAILJS_CONFIG.publicKey !== "YOUR_EMAILJS_PUBLIC_KEY";
+
+      try {
+        if (isLiveEmailConfigured) {
+          // Send internal notification alert to Chitai Soft engineering team
+          await emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateIdAdmin, payload);
+
+          // If client provided email, send auto-reply confirmation
+          if (payload.user_email && payload.user_email !== 'N/A') {
+            await emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateIdClient, payload);
+          }
+        } else {
+          // Graceful simulated network transit if keys not yet configured
+          await new Promise(resolve => setTimeout(resolve, 800));
+        }
+
         if (submitBtn) {
           submitBtn.disabled = false;
           submitBtn.innerText = 'Enquiry Sent Successfully ✓';
@@ -65,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
           submitBtn.style.color = '#ffffff';
         }
 
-        alert('Thank you for contacting Chitai Soft Automation! Our engineering team will review your requirements and respond within 24 hours.');
+        showToast('Thank you! Your enquiry has been received. Our engineering team will respond within 24 hours.', 'success');
         form.reset();
 
         setTimeout(() => {
@@ -76,7 +142,28 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.style.color = '';
           }
         }, 4000);
-      }, 1000);
+
+      } catch (err) {
+        console.error("Enquiry Transmission Error:", err);
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerText = 'Transmission Failed - Retry';
+          submitBtn.style.backgroundColor = '#dc2626';
+          submitBtn.style.borderColor = '#dc2626';
+          submitBtn.style.color = '#ffffff';
+        }
+
+        showToast('Unable to send enquiry automatically. Please email info@chitaisoftautomation.in directly.', 'error');
+
+        setTimeout(() => {
+          if (submitBtn) {
+            submitBtn.innerText = originalText;
+            submitBtn.style.backgroundColor = '';
+            submitBtn.style.borderColor = '';
+            submitBtn.style.color = '';
+          }
+        }, 4000);
+      }
     });
   });
 

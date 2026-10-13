@@ -1,0 +1,8 @@
+# Robots.txt for Chitai Soft Automation
+# Domain: https://chitaisoftautomation.in
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://chitaisoftautomation.in/sitemap.xml
