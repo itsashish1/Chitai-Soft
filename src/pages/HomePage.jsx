@@ -6,15 +6,74 @@ import { submitEnquiry } from '../services/emailService';
 const partnerLogos = [
   { name: 'Siemens', src: '/assets/images/logos/siemens.png', alt: 'Siemens Industrial Automation' },
   { name: 'Schneider Electric', src: '/assets/images/logos/schneider.png', alt: 'Schneider Electric Modicon' },
-  { name: 'Rockwell Automation', src: '/assets/images/logos/rockwell.png', alt: 'Rockwell Automation Allen-Bradley' },
-  { name: 'Honeywell', src: '/assets/images/logos/honeywell.png', alt: 'Honeywell Process Solutions' },
-  { name: 'Delta Electronics', src: '/assets/images/logos/delta.png', alt: 'Delta Industrial Automation' },
+  { name: 'Emerson', src: '/assets/images/logos/emerson.svg', alt: 'Emerson Process Systems' },
   { name: 'Phoenix Contact', src: '/assets/images/logos/phoenix.png', alt: 'Phoenix Contact' },
-  { name: 'GE Vernova', src: '/assets/images/logos/ge-vernova.png', alt: 'GE Vernova Automation' },
+  { name: 'Rockwell Automation', src: '/assets/images/logos/rockwell.png', alt: 'Rockwell Automation Allen-Bradley' },
+  { name: 'Delta Electronics', src: '/assets/images/logos/delta.png', alt: 'Delta Industrial Automation' },
   { name: 'Renu Electronics', src: '/assets/images/logos/renu.png', alt: 'Renu Electronics' },
+  { name: 'Selec', src: '/assets/images/logos/selec.png', alt: 'Selec Controls' },
 ];
 
 const logoSequence = [...partnerLogos, ...partnerLogos];
+
+const industryPartners = [
+  {
+    id: 'siemens',
+    name: 'Siemens',
+    logo: '/assets/images/logos/siemens.png',
+    desc: 'Industrial Automation Solutions',
+    alt: 'Siemens Industrial Automation'
+  },
+  {
+    id: 'phoenix-contact',
+    name: 'Phoenix Contact',
+    logo: '/assets/images/logos/phoenix.png',
+    desc: 'Process Solutions',
+    alt: 'Phoenix Contact Process Solutions'
+  },
+  {
+    id: 'schneider',
+    name: 'Schneider Electric',
+    logo: '/assets/images/logos/schneider.png',
+    desc: 'Energy Management',
+    alt: 'Schneider Electric Energy Management'
+  },
+  {
+    id: 'emerson',
+    name: 'Emerson',
+    logo: '/assets/images/logos/emerson.svg',
+    desc: 'Process Systems & Solutions',
+    alt: 'Emerson Process Systems & Solutions'
+  },
+  {
+    id: 'rockwell',
+    name: 'Rockwell Automation',
+    logo: '/assets/images/logos/rockwell.png',
+    desc: 'Control Systems & Software',
+    alt: 'Rockwell Automation Control Systems & Software'
+  },
+  {
+    id: 'delta',
+    name: 'Delta',
+    logo: '/assets/images/logos/delta.png',
+    desc: 'Industrial Automation & Drives',
+    alt: 'Delta Industrial Automation & Drives'
+  },
+  {
+    id: 'renu',
+    name: 'Renu Electronics',
+    logo: '/assets/images/logos/renu.png',
+    desc: 'Factory Automation & HMI',
+    alt: 'Renu Electronics Factory Automation & HMI'
+  },
+  {
+    id: 'selec',
+    name: 'Selec',
+    logo: '/assets/images/logos/selec.png',
+    desc: 'Factory Automation',
+    alt: 'Selec Controls Factory Automation'
+  }
+];
 
 const serviceCards = [
   {
@@ -343,7 +402,41 @@ export default function HomePage({ onShowToast }) {
         </div>
       )}
 
-      {/* Industries Served Section Removed - Ready for new content */}
+      {/* Trusted by Industry Leaders Worldwide (8 Partner Cards) */}
+      <section className="trusted-partners-section" id="partners-section">
+        <div className="container">
+          <div className="partners-section-header">
+            <div className="partners-eyebrow-pill">
+              <span className="badge-dot"></span>
+              <span>OUR PARTNERS</span>
+            </div>
+            <h2 className="partners-section-title">
+              Trusted by industry <span className="partners-title-gradient">leaders worldwide</span>
+            </h2>
+            <p className="partners-section-lead">
+              We collaborate with the world&apos;s leading technology companies to deliver cutting-edge automation solutions
+            </p>
+          </div>
+
+          <div className="partners-cards-grid">
+            {industryPartners.map((partner) => (
+              <div className="partner-card-dark" key={partner.id}>
+                <div className="partner-card-logo-box">
+                  <img
+                    src={partner.logo}
+                    alt={partner.alt}
+                    className="partner-card-logo-img"
+                    loading="lazy"
+                  />
+                </div>
+                <h3 className="partner-card-name">{partner.name}</h3>
+                <p className="partner-card-desc">{partner.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
 
       {/* Ready to Automate Your Plant? / Send an Enquiry (Matches image4.png) */}
       <section id="enquiry-section" className="cta-enquiry-section circuit-bg">
