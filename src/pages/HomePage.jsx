@@ -343,68 +343,7 @@ export default function HomePage({ onShowToast }) {
         </div>
       )}
 
-      {/* Industries Served (Matches image3.png) */}
-      <section className="section-padding" style={{ backgroundColor: '#f8fafc', borderTop: '1px solid var(--border-light)', borderBottom: '1px solid var(--border-light)' }}>
-        <div className="container">
-          <div style={{ marginBottom: '36px' }}>
-            <div className="section-eyebrow">
-              <span>&diamond; INDUSTRIES SERVED</span>
-            </div>
-            <h2 className="section-title">Built for Power &amp; Oil and Gas. Ready for More.</h2>
-          </div>
-
-          {/* Primary Vertical Large Card */}
-          <div className="primary-vertical-card">
-            <div className="vertical-image">
-              <img src="/assets/images/plc-control-panel-hd.jpg" alt="Industrial Power & Oil and Gas Control Panel Systems" />
-            </div>
-            <div className="vertical-content">
-              <span className="tag-badge">PRIMARY VERTICAL</span>
-              <h3 className="section-title" style={{ fontSize: '1.6rem', marginBottom: '12px' }}>Power &amp; Oil and Gas</h3>
-              <p className="section-lead" style={{ fontSize: '0.95rem', marginBottom: '24px' }}>
-                Automation in power generation and oil &amp; gas demands zero-tolerance reliability, functional safety compliance, and real-time visibility across critical assets. We engineer control systems that meet IEC 61511 and IEC 61508 standards while maximising plant availability and operational safety.
-              </p>
-
-              <div className="feature-point">
-                <div className="feature-point-title">Turbine &amp; Generator Control</div>
-                <div className="feature-point-desc">
-                  Automated control sequences for turbines, generators, and auxiliary systems &mdash; precise, safe, and fully logged for compliance.
-                </div>
-              </div>
-
-              <div className="feature-point">
-                <div className="feature-point-title">Pipeline &amp; Process Automation</div>
-                <div className="feature-point-desc">
-                  End-to-end pipeline monitoring and control with leak detection, pressure management, and emergency shutdown integration.
-                </div>
-              </div>
-
-              <div className="feature-point">
-                <div className="feature-point-title">Safety Instrumented Systems (SIS)</div>
-                <div className="feature-point-desc">
-                  IEC 61511-compliant SIS design and integration &mdash; protecting personnel, assets, and the environment across critical process loops.
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Sub Industry Small Cards */}
-          <div className="sub-industry-cards">
-            <div className="sub-industry-card">
-              <h4 style={{ fontSize: '1.15rem', fontWeight: 700, marginBottom: '8px' }}>Chemical Processing</h4>
-              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.5 }}>
-                Safe, reliable control systems for continuous and batch chemical processes.
-              </p>
-            </div>
-            <div className="sub-industry-card">
-              <h4 style={{ fontSize: '1.15rem', fontWeight: 700, marginBottom: '8px' }}>Packaging &amp; Logistics</h4>
-              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.5 }}>
-                High-speed line automation, vision inspection, and warehouse management integration.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Industries Served Section Removed - Ready for new content */}
 
       {/* Ready to Automate Your Plant? / Send an Enquiry (Matches image4.png) */}
       <section id="enquiry-section" className="cta-enquiry-section circuit-bg">
