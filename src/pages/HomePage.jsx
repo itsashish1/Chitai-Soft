@@ -402,25 +402,12 @@ export default function HomePage({ onShowToast }) {
         </div>
       )}
 
-      {/* Trusted by Industry Leaders Worldwide (8 Partner Cards) */}
+      {/* 8 Industry Partner Logo Cards (White Background) */}
       <section className="trusted-partners-section" id="partners-section">
         <div className="container">
-          <div className="partners-section-header">
-            <div className="partners-eyebrow-pill">
-              <span className="badge-dot"></span>
-              <span>OUR PARTNERS</span>
-            </div>
-            <h2 className="partners-section-title">
-              Trusted by industry <span className="partners-title-gradient">leaders worldwide</span>
-            </h2>
-            <p className="partners-section-lead">
-              We collaborate with the world&apos;s leading technology companies to deliver cutting-edge automation solutions
-            </p>
-          </div>
-
           <div className="partners-cards-grid">
             {industryPartners.map((partner) => (
-              <div className="partner-card-dark" key={partner.id}>
+              <div className="partner-card-light" key={partner.id}>
                 <div className="partner-card-logo-box">
                   <img
                     src={partner.logo}

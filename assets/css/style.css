@@ -2290,117 +2290,60 @@ button, input, textarea, select {
 }
 
 /* ==========================================================================
-   Industry Partners Showcase (Dark Card Grid matching Figma / Spec)
+   Industry Partners Showcase (White Background, Clean Light Cards)
    ========================================================================== */
 .trusted-partners-section {
-  background: #080c14;
-  background-image: 
-    radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.14) 0%, transparent 60%),
-    radial-gradient(circle at 100% 100%, rgba(14, 165, 233, 0.08) 0%, transparent 50%);
-  padding: 85px 0 95px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: #ffffff;
+  padding: 65px 0 75px;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
   position: relative;
-  overflow: hidden;
-}
-
-.partners-section-header {
-  text-align: center;
-  max-width: 780px;
-  margin: 0 auto;
-}
-
-.partners-eyebrow-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 14px;
-  background: rgba(147, 51, 234, 0.12);
-  border: 1px solid rgba(168, 85, 247, 0.32);
-  border-radius: 9999px;
-  font-size: 0.74rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  color: #c084fc;
-  text-transform: uppercase;
-  margin-bottom: 18px;
-}
-
-.partners-eyebrow-pill .badge-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #a855f7;
-  box-shadow: 0 0 8px #a855f7;
-  display: inline-block;
-}
-
-.partners-section-title {
-  font-size: 2.6rem;
-  font-weight: 800;
-  color: #ffffff;
-  letter-spacing: -0.025em;
-  line-height: 1.2;
-  margin-bottom: 14px;
-}
-
-.partners-title-gradient {
-  background: linear-gradient(135deg, #a855f7 10%, #60a5fa 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.partners-section-lead {
-  color: #94a3b8;
-  font-size: 1.05rem;
-  line-height: 1.65;
-  margin: 0 auto;
 }
 
 .partners-cards-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
-  margin-top: 48px;
+  margin-top: 0;
 }
 
-.partner-card-dark {
-  background: rgba(15, 23, 42, 0.65);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+.partner-card-light {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
   border-radius: 16px;
-  padding: 34px 20px 28px;
+  padding: 32px 20px 28px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease, border-color 0.28s ease, background 0.28s ease;
-  position: relative;
-  backdrop-filter: blur(10px);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease, border-color 0.28s ease;
+  box-shadow: 0 4px 18px rgba(10, 49, 107, 0.04);
 }
 
-.partner-card-dark:hover {
-  transform: translateY(-6px);
-  background: rgba(22, 34, 60, 0.85);
-  border-color: rgba(99, 102, 241, 0.45);
-  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.6), 0 0 26px rgba(99, 102, 241, 0.16);
+.partner-card-light:hover {
+  transform: translateY(-5px);
+  border-color: #93c5fd;
+  box-shadow: 0 16px 36px -10px rgba(10, 49, 107, 0.12), 0 0 0 1px rgba(147, 197, 253, 0.4);
 }
 
 .partner-card-logo-box {
-  width: 76px;
-  height: 76px;
+  width: 80px;
+  height: 80px;
   background: #ffffff;
+  border: 1px solid #f1f5f9;
   border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 12px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  margin-bottom: 18px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   transition: transform 0.28s ease;
 }
 
-.partner-card-dark:hover .partner-card-logo-box {
+.partner-card-light:hover .partner-card-logo-box {
   transform: scale(1.06);
+  border-color: #e2e8f0;
 }
 
 .partner-card-logo-img {
@@ -2411,24 +2354,21 @@ button, input, textarea, select {
 }
 
 .partner-card-name {
-  font-size: 1.12rem;
+  font-size: 1.15rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--primary-navy, #082752);
   margin-bottom: 6px;
   letter-spacing: -0.01em;
 }
 
 .partner-card-desc {
-  font-size: 0.82rem;
-  color: #94a3b8;
+  font-size: 0.84rem;
+  color: #64748b;
   line-height: 1.45;
   letter-spacing: 0.01em;
 }
 
 @media (max-width: 1024px) {
-  .partners-section-title {
-    font-size: 2.1rem;
-  }
   .partners-cards-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 18px;
@@ -2437,21 +2377,16 @@ button, input, textarea, select {
 
 @media (max-width: 640px) {
   .trusted-partners-section {
-    padding: 60px 0 70px;
-  }
-  .partners-section-title {
-    font-size: 1.75rem;
+    padding: 45px 0 55px;
   }
   .partners-cards-grid {
     grid-template-columns: 1fr;
     gap: 16px;
-    margin-top: 36px;
   }
-  .partner-card-dark {
+  .partner-card-light {
     padding: 26px 18px;
   }
 }
-
 
 
 /* ==========================================================================
