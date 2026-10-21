@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import CounterCard from '../components/CounterCard';
 import { submitEnquiry } from '../services/emailService';
@@ -16,6 +16,89 @@ const partnerLogos = [
 
 const logoSequence = [...partnerLogos, ...partnerLogos];
 
+const serviceCards = [
+  {
+    id: 'control-panel-design',
+    title: 'Control Panel Design',
+    tag: 'ELECTRICAL & POWER CONTROL',
+    image: '/assets/images/plc-control-panel-hd.jpg',
+    shortDesc: 'Custom engineering, fabrication, and wiring of CPRI-compliant PLC, VFD, and MCC automation control panels built for continuous 24/7 industrial performance.',
+    fullDesc: 'End-to-end design, fabrication, and on-site testing of low-voltage automation control panels, motor control centers (MCC), and power distribution panels engineered to IEC 61439 and IP55/IP65 standards.',
+    features: [
+      'CPRI-compliant switchgear, busbar sizing, and thermal load balancing',
+      'Precision EPLAN / AutoCAD electrical schematics with complete I/O loop diagrams',
+      'Integrated safety relays, emergency stop circuits, and surge protection (SPD)',
+      'Comprehensive FAT (Factory Acceptance Testing) and wire-by-wire continuity validation'
+    ],
+    platforms: 'Rittal, Schneider Electric, Siemens, L&T, ABB, Delta Enclosures',
+    standards: 'IEC 61439-1/2, IP55/IP65 Ingress Protection, CE & UL 508A compliant practices'
+  },
+  {
+    id: 'plc-programming',
+    title: 'PLC Programming',
+    tag: 'AUTOMATION LOGIC & INTERLOCKS',
+    image: '/assets/images/plc-programming-hd.jpg',
+    shortDesc: 'Structured multi-platform PLC programming with fail-safe interlocks, PID loop tuning, and high-speed motion control for continuous process lines.',
+    fullDesc: 'Vendor-agnostic PLC logic development implementing IEC 61131-3 standardized Ladder Diagram (LD), Function Block Diagram (FBD), and Structured Text (ST) for complex plant machinery and batch processes.',
+    features: [
+      'Modular code architecture with standard faceplates and reusable function blocks',
+      'High-speed servo/stepper motion synchronization and multi-axis VFD control',
+      'Precision analog process control with self-tuning PID algorithms (Temperature, Pressure, Flow)',
+      'Non-intrusive retrofit logic updates with zero production disruption'
+    ],
+    platforms: 'Siemens S7-1200/1500 (TIA Portal), Allen-Bradley ControlLogix, Delta DVP, Schneider Modicon, Emerson DeltaV',
+    standards: 'IEC 61131-3, ISA-88 Batch Control, SIL-2/SIL-3 Functional Safety'
+  },
+  {
+    id: 'scada-designing',
+    title: 'SCADA Designing',
+    tag: 'CENTRALIZED SUPERVISORY CONTROL',
+    image: '/assets/images/scada-control-room-hd.jpg',
+    shortDesc: 'Real-time supervisory control dashboards with live animated plant mimics, historical trending, and automated alarms for plant-wide visibility.',
+    fullDesc: 'Architecting high-availability SCADA control systems delivering mission-critical telemetry, multi-monitor control room visualizations, and enterprise SQL/Historian logging for power plants and process industries.',
+    features: [
+      'High-performance graphic interface design following ISA-101 standards',
+      'Millisecond alarm prioritization, automated SMS/Email fault escalation, and audit trails',
+      'Secure multi-protocol drivers: Modbus TCP/RTU, OPC-UA/DA, IEC 60870-5-104, DNP3',
+      'Real-time historian database logging with automated production shift reports'
+    ],
+    platforms: 'Wonderware / AVEVA System Platform, Ignition SCADA, Siemens WinCC, Emerson DeltaV, Schneider EcoStruxure',
+    standards: 'ISA-101 HMI/SCADA Design, 21 CFR Part 11 Electronic Records, NERC CIP Cybersecurity'
+  },
+  {
+    id: 'hmi-designing',
+    title: 'HMI Designing',
+    tag: 'INTUITIVE OPERATOR INTERFACE',
+    image: '/assets/images/hmi-design-hd.jpg',
+    shortDesc: 'Ergonomic touchscreen interfaces featuring intuitive equipment controls, real-time recipe management, and one-touch diagnostic troubleshooting.',
+    fullDesc: 'Custom development of ruggedized shop-floor touch panel HMIs that empower operators with fast, error-free machine operation, interactive graphical diagnostics, and multi-level password security.',
+    features: [
+      'High-contrast daylight readable screens designed for industrial plant floors',
+      'Batch recipe management, parameter staging, and multi-language operator displays',
+      'Direct hardware I/O diagnostic screens for rapid fault localization without laptops',
+      'Dual Ethernet / RS-485 serial communication with instant PLC synchronization'
+    ],
+    platforms: 'Delta DOP-100 Series, Siemens Simatic Comfort Panels, Schneider Magelis / Harmony, Renu FlexiPanels',
+    standards: 'ISA-101 Ergonomic Guidelines, IP66 Front Bezel Protection, IEC 60068 Environmental Testing'
+  },
+  {
+    id: 'industrial-iot-40',
+    title: 'Industrial IoT 4.0',
+    tag: 'SMART FACTORY & CLOUD ANALYTICS',
+    image: '/assets/images/iiot-smart-factory-hd.jpg',
+    shortDesc: 'Bridge physical machinery to cloud dashboards with smart edge gateways, automated OEE analytics, and predictive maintenance telemetry.',
+    fullDesc: 'Deploying enterprise Industry 4.0 IoT architectures that capture live telemetry from brownfield and greenfield machines to calculate real-time OEE, detect anomalies, and stream data securely to ERP/Cloud systems.',
+    features: [
+      'Zero rip-and-replace edge gateway integration via Modbus, MQTT Sparkplug B, and OPC-UA',
+      'Automated Overall Equipment Effectiveness (OEE), scrap rate, and downtime tracking',
+      'Vibration, thermal, and electrical power monitoring for predictive breakdown alerts',
+      'Cloud dashboard integration (AWS IoT, Azure IoT Central, Local On-Premises Servers)'
+    ],
+    platforms: 'Advantech, Moxa, Raspberry Pi Industrial, Teltonika Gateways, Node-RED, AWS/Azure IoT',
+    standards: 'MQTT 5.0 / Sparkplug B, OPC Unified Architecture (IEC 62541), ISA-95 Cloud Integration'
+  }
+];
+
 export default function HomePage({ onShowToast }) {
   const [formData, setFormData] = useState({
     user_name: '',
@@ -25,6 +108,23 @@ export default function HomePage({ onShowToast }) {
   });
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [selectedService, setSelectedService] = useState(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setSelectedService(null);
+    };
+    if (selectedService) {
+      document.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedService]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -127,8 +227,8 @@ export default function HomePage({ onShowToast }) {
         </div>
       </div>
 
-      {/* End-to-End Automation Engineering (Matches image2.png) */}
-      <section className="section-padding">
+      {/* End-to-End Automation Engineering (5 Services Cards) */}
+      <section className="section-padding" id="automation-services">
         <div className="container">
           <div className="section-header-centered">
             <h2 className="section-title">End-to-End Automation Engineering</h2>
@@ -137,71 +237,111 @@ export default function HomePage({ onShowToast }) {
             </p>
           </div>
 
-          <div className="grid-2">
-            {/* Card 1: PLC & SCADA Systems */}
-            <div className="corner-card">
-              <div style={{ borderRadius: '8px', overflow: 'hidden', height: '180px', marginBottom: '16px', border: '1px solid #cbd5e1' }}>
-                <img src="/assets/images/scada-control-room-hd.jpg" alt="SCADA Control Architecture" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          <div className="services-five-grid">
+            {serviceCards.map((service) => (
+              <div className="corner-card service-preview-card" key={service.id}>
+                <div className="service-card-img-wrap">
+                  <img src={service.image} alt={service.title} loading="lazy" />
+                </div>
+                <span className="tag-badge">{service.tag}</span>
+                <h3 className="feature-point-title" style={{ fontSize: '1.25rem', margin: '12px 0 8px' }}>
+                  {service.title}
+                </h3>
+                <p className="service-short-desc">
+                  {service.shortDesc}
+                </p>
+                <button
+                  type="button"
+                  className="service-learn-more-btn"
+                  onClick={() => setSelectedService(service)}
+                >
+                  Learn More &rarr;
+                </button>
               </div>
-              <span className="tag-badge">CONTROL ARCHITECTURE</span>
-              <h3 className="feature-point-title" style={{ fontSize: '1.35rem', marginBottom: '12px' }}>PLC &amp; SCADA Systems</h3>
-              <p className="feature-point-desc" style={{ marginBottom: '20px' }}>
-                Full-cycle PLC programming, panel design, and SCADA implementation. We work across Siemens, Allen-Bradley, Emerson, Schneider, Delta, and Mitsubishi platforms &mdash; from I/O mapping and ladder logic to HMI development and historian integration.
-              </p>
-              <ul className="bullet-list">
-                <li className="bullet-item">
-                  <span className="icon">&bull;</span>
-                  <span>Multi-vendor PLC support</span>
-                </li>
-                <li className="bullet-item">
-                  <span className="icon">&bull;</span>
-                  <span>Real-time SCADA dashboards</span>
-                </li>
-                <li className="bullet-item">
-                  <span className="icon">&bull;</span>
-                  <span>Alarm management &amp; historian</span>
-                </li>
-                <li className="bullet-item">
-                  <span className="icon">&bull;</span>
-                  <span>Remote access &amp; diagnostics</span>
-                </li>
-              </ul>
-              <Link to="/services#plc-scada" className="link-arrow">Learn More &rarr;</Link>
-            </div>
-
-            {/* Card 2: Industrial IoT & Smart Manufacturing */}
-            <div className="corner-card">
-              <div style={{ borderRadius: '8px', overflow: 'hidden', height: '180px', marginBottom: '16px', border: '1px solid #cbd5e1' }}>
-                <img src="/assets/images/iiot-smart-factory-hd.jpg" alt="Industrial IoT & Smart Factory Sensors" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              </div>
-              <span className="tag-badge">INDUSTRY 4.0</span>
-              <h3 className="feature-point-title" style={{ fontSize: '1.35rem', marginBottom: '12px' }}>Industrial IoT &amp; Smart Manufacturing</h3>
-              <p className="feature-point-desc" style={{ marginBottom: '20px' }}>
-                Connect your plant floor to the cloud. We deploy edge gateways, sensor networks, and analytics dashboards that give plant managers live OEE data, predictive maintenance alerts, and production KPIs &mdash; without replacing existing equipment.
-              </p>
-              <ul className="bullet-list">
-                <li className="bullet-item">
-                  <span className="icon">&bull;</span>
-                  <span>Edge computing &amp; gateway setup</span>
-                </li>
-                <li className="bullet-item">
-                  <span className="icon">&bull;</span>
-                  <span>OEE &amp; downtime analytics</span>
-                </li>
-                <li className="bullet-item">
-                  <span className="icon">&bull;</span>
-                  <span>Predictive maintenance alerts</span>
-                </li>
-                <li className="bullet-item">
-                  <span className="icon">&bull;</span>
-                  <span>ERP/MES integration</span>
-                </li>
-              </ul>
-              <Link to="/services#iiot" className="link-arrow">Learn More &rarr;</Link>
-            </div>
+            ))}
           </div>
         </div>
       </section>
+
+      {/* Service Details Pop-up Modal (Blurred Background) */}
+      {selectedService && (
+        <div
+          className="service-modal-backdrop"
+          onClick={() => setSelectedService(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-service-title"
+        >
+          <div className="service-modal-card" onClick={(e) => e.stopPropagation()}>
+            <button
+              type="button"
+              className="service-modal-close"
+              onClick={() => setSelectedService(null)}
+              aria-label="Close details"
+            >
+              &times;
+            </button>
+
+            <div className="service-modal-image-wrap">
+              <img src={selectedService.image} alt={selectedService.title} />
+              <span className="service-modal-tag">{selectedService.tag}</span>
+            </div>
+
+            <div className="service-modal-body">
+              <h2 id="modal-service-title" className="service-modal-title">
+                {selectedService.title}
+              </h2>
+              <p className="service-modal-lead">{selectedService.fullDesc}</p>
+
+              <div className="service-modal-features">
+                <h4 className="service-modal-subheading">Key Engineering Capabilities</h4>
+                <ul className="service-modal-list">
+                  {selectedService.features.map((feature, idx) => (
+                    <li key={idx}>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="service-modal-specs">
+                <div className="service-spec-box">
+                  <span className="spec-label">Platforms &amp; Hardware</span>
+                  <span className="spec-val">{selectedService.platforms}</span>
+                </div>
+                <div className="service-spec-box">
+                  <span className="spec-label">Standards &amp; Quality</span>
+                  <span className="spec-val">{selectedService.standards}</span>
+                </div>
+              </div>
+
+              <div className="service-modal-footer">
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={() => {
+                    setSelectedService(null);
+                    const formEl = document.querySelector('.enquiry-card') || document.querySelector('form');
+                    if (formEl) formEl.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  Consult with an Engineer &rarr;
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-outline"
+                  onClick={() => setSelectedService(null)}
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Industries Served (Matches image3.png) */}
       <section className="section-padding" style={{ backgroundColor: '#f8fafc', borderTop: '1px solid var(--border-light)', borderBottom: '1px solid var(--border-light)' }}>
