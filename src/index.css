@@ -1913,6 +1913,70 @@ button, input, textarea, select {
 }
 
 /* ==========================================================================
+   Partner & OEM Brand Logo Marquee Badges
+   ========================================================================== */
+.partner-marquee-strip {
+  padding: 18px 0;
+}
+
+.partner-marquee-strip .marquee-track {
+  gap: 28px;
+  animation: marqueeScroll 32s linear infinite;
+}
+
+.partner-logo-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  padding: 8px 24px;
+  border-radius: 12px;
+  height: 54px;
+  min-width: 140px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.partner-logo-badge:hover {
+  transform: translateY(-2px) scale(1.06);
+  box-shadow: 0 8px 22px rgba(0, 180, 216, 0.4);
+  border-color: rgba(0, 180, 216, 0.8);
+}
+
+.partner-logo-img {
+  max-height: 32px;
+  max-width: 120px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .partner-marquee-strip {
+    padding: 14px 0;
+  }
+  .partner-marquee-strip .marquee-track {
+    gap: 18px;
+    animation: marqueeScroll 24s linear infinite;
+  }
+  .partner-logo-badge {
+    height: 46px;
+    min-width: 110px;
+    padding: 6px 16px;
+    border-radius: 10px;
+  }
+  .partner-logo-img {
+    max-height: 26px;
+    max-width: 95px;
+  }
+}
+
+
+/* ==========================================================================
    Interactive Sliding Showcase (Slide & Scroll Animation)
    ========================================================================== */
 .interactive-slider-section {

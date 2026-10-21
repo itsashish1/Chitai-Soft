@@ -3,6 +3,19 @@ import { Link } from 'react-router-dom';
 import CounterCard from '../components/CounterCard';
 import { submitEnquiry } from '../services/emailService';
 
+const partnerLogos = [
+  { name: 'Siemens', src: '/assets/images/logos/siemens.png', alt: 'Siemens Industrial Automation' },
+  { name: 'Schneider Electric', src: '/assets/images/logos/schneider.png', alt: 'Schneider Electric Modicon' },
+  { name: 'Rockwell Automation', src: '/assets/images/logos/rockwell.png', alt: 'Rockwell Automation Allen-Bradley' },
+  { name: 'Honeywell', src: '/assets/images/logos/honeywell.png', alt: 'Honeywell Process Solutions' },
+  { name: 'Delta Electronics', src: '/assets/images/logos/delta.png', alt: 'Delta Industrial Automation' },
+  { name: 'Phoenix Contact', src: '/assets/images/logos/phoenix.png', alt: 'Phoenix Contact' },
+  { name: 'GE Vernova', src: '/assets/images/logos/ge-vernova.png', alt: 'GE Vernova Automation' },
+  { name: 'Renu Electronics', src: '/assets/images/logos/renu.png', alt: 'Renu Electronics' },
+];
+
+const logoSequence = [...partnerLogos, ...partnerLogos];
+
 export default function HomePage({ onShowToast }) {
   const [formData, setFormData] = useState({
     user_name: '',
@@ -97,48 +110,20 @@ export default function HomePage({ onShowToast }) {
         </div>
       </section>
 
-      {/* Value Propositions Banner */}
-      <div className="value-strip">
-        <div className="container">
-          <div className="value-strip-inner">
-            <div className="value-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Reliable
-            </div>
-            <div className="value-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Innovative
-            </div>
-            <div className="value-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Customized Solutions
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Moving Infinite Marquee Ticker */}
-      <div className="marquee-strip">
+      {/* Moving Infinite Logo Marquee Strip */}
+      <div className="marquee-strip partner-marquee-strip" role="region" aria-label="Supported Automation Platforms and OEM Partners">
         <div className="marquee-track">
-          <div className="marquee-item"><span className="marquee-dot"></span> EMERSON DELTAV &amp; PACSYSTEMS</div>
-          <div className="marquee-item"><span className="marquee-dot"></span> SCHNEIDER ELECTRIC MODICON</div>
-          <div className="marquee-item"><span className="marquee-dot"></span> DELTA DVP &amp; DOP HMI</div>
-          <div className="marquee-item"><span className="marquee-dot"></span> RENU FLEXIPANELS</div>
-          <div className="marquee-item"><span className="marquee-dot"></span> MODBUS TCP &amp; RTU</div>
-          <div className="marquee-item"><span className="marquee-dot"></span> OPC-UA / DA HISTORIAN</div>
-          <div className="marquee-item"><span className="marquee-dot"></span> MQTT SPARKPLUG B</div>
-          <div className="marquee-item"><span className="marquee-dot"></span> OEE &amp; DOWNTIME TELEMETRY</div>
-          <div className="marquee-item"><span className="marquee-dot"></span> ZERO RIP-AND-REPLACE RETROFIT</div>
-          {/* Duplicate items for seamless continuous loop */}
-          <div className="marquee-item"><span className="marquee-dot"></span> EMERSON DELTAV &amp; PACSYSTEMS</div>
-          <div className="marquee-item"><span className="marquee-dot"></span> SCHNEIDER ELECTRIC MODICON</div>
-          <div className="marquee-item"><span className="marquee-dot"></span> DELTA DVP &amp; DOP HMI</div>
-          <div className="marquee-item"><span className="marquee-dot"></span> RENU FLEXIPANELS</div>
-          <div className="marquee-item"><span className="marquee-dot"></span> MODBUS TCP &amp; RTU</div>
-          <div className="marquee-item"><span className="marquee-dot"></span> OPC-UA / DA HISTORIAN</div>
-          <div className="marquee-item"><span className="marquee-dot"></span> MQTT SPARKPLUG B</div>
-          <div className="marquee-item"><span className="marquee-dot"></span> OEE &amp; DOWNTIME TELEMETRY</div>
-          <div className="marquee-item"><span className="marquee-dot"></span> ZERO RIP-AND-REPLACE RETROFIT</div>
+          {logoSequence.map((logo, index) => (
+            <div className="partner-logo-badge" key={`logo-a-${index}`} title={logo.name}>
+              <img src={logo.src} alt={logo.alt} className="partner-logo-img" loading="lazy" />
+            </div>
+          ))}
+          {/* Duplicate set for seamless continuous -50% loop */}
+          {logoSequence.map((logo, index) => (
+            <div className="partner-logo-badge" key={`logo-b-${index}`} title={logo.name} aria-hidden="true">
+              <img src={logo.src} alt={logo.alt} className="partner-logo-img" loading="lazy" />
+            </div>
+          ))}
         </div>
       </div>
 
