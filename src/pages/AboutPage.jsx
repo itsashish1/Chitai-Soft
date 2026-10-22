@@ -1,15 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import DynamicTypewriter from '../components/DynamicTypewriter';
 
 export default function AboutPage() {
   return (
     <div className="about-page">
-      {/* Page Hero (Matches image10.png top) */}
-      <section className="circuit-bg" style={{ padding: '70px 0 50px', color: '#ffffff' }}>
+      {/* Page Hero with Dynamic Typewriter (Automax inspired) */}
+      <section className="circuit-bg" style={{ padding: '75px 0 55px', color: '#ffffff' }}>
         <div className="container" style={{ textAlign: 'center' }}>
-          <h1 className="section-title white" style={{ fontSize: 'clamp(2rem, 5vw, 3rem)' }}>About Chitai Soft Automation</h1>
-          <p className="section-lead white" style={{ margin: '0 auto', maxWidth: '800px' }}>
-            An automation engineering company delivering reliable industrial control systems across India.
+          <div className="section-eyebrow white" style={{ justifyContent: 'center' }}>
+            &bull; WHO WE ARE
+          </div>
+          <h1 className="section-title white" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.4rem)', margin: '12px 0 16px' }}>
+            About <DynamicTypewriter words={["Chitai Soft", "Industrial Automation", "Control Engineering", "Smart Factories"]} />
+          </h1>
+          <p className="section-lead white" style={{ margin: '0 auto', maxWidth: '820px' }}>
+            Leading the future of industrial automation with innovative control architectures, PLC/SCADA systems, and expert commissioning across India.
           </p>
         </div>
       </section>
@@ -31,14 +37,16 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* Our Story & 4 Pillars (Matches image10.png middle) */}
-      <section className="section-padding">
+      {/* Meet Chitai Soft & Automax-Inspired Premium Video Showcase */}
+      <section className="section-padding" style={{ backgroundColor: '#ffffff' }}>
         <div className="container">
-          <div className="about-hero-grid">
-            {/* Left: Narrative */}
+          <div className="automax-about-grid">
+            {/* Left: Narrative & Milestone Metrics */}
             <div>
-              <div className="section-eyebrow">OUR STORY</div>
-              <h2 className="section-title">Built on Engineering Expertise</h2>
+              <div className="section-eyebrow">&bull; OUR STORY</div>
+              <h2 className="section-title" style={{ fontSize: '2.2rem', marginBottom: '18px' }}>
+                Built on Engineering Expertise
+              </h2>
               <div className="about-story-text">
                 <p>
                   Chitai Soft Automation was founded with a single purpose &mdash; to bring dependable, well-engineered automation to Indian industry. We work with plant operators, project managers, and engineering teams across the country to design, commission, and support industrial control systems that perform.
@@ -49,48 +57,112 @@ export default function AboutPage() {
                 <p>
                   Our team combines hands-on site experience with deep knowledge of PLC programming, SCADA development, and Industrial IoT &mdash; giving clients a single point of accountability from design through commissioning and beyond.
                 </p>
-                <div style={{ borderRadius: '10px', overflow: 'hidden', marginTop: '24px', border: '1px solid #cbd5e1', boxShadow: '0 8px 24px rgba(0,0,0,0.08)' }}>
-                  <img src="/assets/images/scada-control-room-hd.jpg" alt="Chitai Soft Automation Engineering Team & Control Room" style={{ width: '100%', height: '220px', objectFit: 'cover' }} />
+              </div>
+
+              {/* Automax-Style Stats Strip */}
+              <div className="automax-stat-strip">
+                <div className="automax-stat-item">
+                  <div className="automax-stat-number">500+</div>
+                  <div className="automax-stat-label">Panels &amp; Projects</div>
+                </div>
+                <div className="automax-stat-item">
+                  <div className="automax-stat-number">99.8%</div>
+                  <div className="automax-stat-label">Plant Reliability</div>
+                </div>
+                <div className="automax-stat-item">
+                  <div className="automax-stat-number">24 Hr</div>
+                  <div className="automax-stat-label">Response SLA</div>
                 </div>
               </div>
             </div>
 
-            {/* Right: 4 Pillar Cards */}
-            <div className="about-pillars-grid">
-              <div className="corner-card about-pillar-card">
-                <h4 style={{ fontSize: '1.05rem', fontWeight: 700, marginBottom: '8px', color: 'var(--text-main)' }}>Technical Rigour</h4>
-                <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', lineHeight: 1.5 }}>
-                  Every system we deliver is designed to specification, tested thoroughly, and documented completely. No shortcuts.
-                </p>
-              </div>
+            {/* Right: Automax-Inspired Cinematic Video Player Showcase with Floating Badges */}
+            <div>
+              <div className="automax-video-showcase">
+                {/* Floating Top-Right Badge (24/7 Live Monitoring) */}
+                <div className="floating-badge badge-top-right">
+                  <span className="live-pulse-dot"></span>
+                  <span>24/7 Automation Support</span>
+                </div>
 
-              <div className="corner-card about-pillar-card">
-                <h4 style={{ fontSize: '1.05rem', fontWeight: 700, marginBottom: '8px', color: 'var(--text-main)' }}>Site-First Thinking</h4>
-                <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', lineHeight: 1.5 }}>
-                  Our engineers have spent time on plant floors. We design for the realities of industrial environments, not just the drawing board.
-                </p>
-              </div>
+                {/* Floating Bottom-Left Badge (99.8% Uptime) */}
+                <div className="floating-badge badge-bottom-left">
+                  <span className="star-pulse-dot"></span>
+                  <span>99.8% System Uptime</span>
+                </div>
 
-              <div className="corner-card about-pillar-card">
-                <h4 style={{ fontSize: '1.05rem', fontWeight: 700, marginBottom: '8px', color: 'var(--text-main)' }}>Vendor Independence</h4>
-                <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', lineHeight: 1.5 }}>
-                  We work across all major automation platforms and recommend what is right for your process &mdash; not what is convenient for us.
-                </p>
-              </div>
+                {/* Video Player */}
+                <video
+                  className="automax-video-player"
+                  src="/assets/videos/about-chitai-video.mp4"
+                  poster="/assets/videos/about-video-poster.jpg"
+                  controls
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  title="Chitai Soft Automation Brand Story"
+                >
+                  Your browser does not support HTML5 video.
+                </video>
 
-              <div className="corner-card about-pillar-card">
-                <h4 style={{ fontSize: '1.05rem', fontWeight: 700, marginBottom: '8px', color: 'var(--text-main)' }}>Long-Term Support</h4>
-                <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', lineHeight: 1.5 }}>
-                  We build relationships, not just systems. Our clients know they can call us after commissioning and we will be there.
-                </p>
+                {/* Bottom Gradient Caption Bar */}
+                <div className="automax-video-bottom-bar">
+                  <span className="automax-video-caption">
+                    Chitai Soft Automation &bull; Brand Film
+                  </span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Core Capabilities (Matches image11.png top) */}
-      <section className="section-padding" style={{ backgroundColor: '#f8fafc', borderTop: '1px solid var(--border-light)', borderBottom: '1px solid var(--border-light)' }}>
+      {/* 4 Core Pillars */}
+      <section className="section-padding" style={{ backgroundColor: '#f8fafc', borderTop: '1px solid #e2e8f0', borderBottom: '1px solid #e2e8f0' }}>
+        <div className="container">
+          <div className="section-header-centered" style={{ marginBottom: '36px' }}>
+            <div className="section-eyebrow" style={{ justifyContent: 'center' }}>&bull; CORE VALUES</div>
+            <h2 className="section-title">The Principles Behind Every Delivery</h2>
+            <p className="section-lead" style={{ maxWidth: '680px', margin: '0 auto' }}>
+              How we approach engineering, collaboration, and client relationships across India.
+            </p>
+          </div>
+
+          <div className="about-pillars-grid">
+            <div className="corner-card about-pillar-card">
+              <h4 style={{ fontSize: '1.15rem', fontWeight: 700, marginBottom: '8px', color: 'var(--text-main)' }}>Technical Rigour</h4>
+              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.55 }}>
+                Every system we deliver is designed to specification, tested thoroughly, and documented completely. No shortcuts.
+              </p>
+            </div>
+
+            <div className="corner-card about-pillar-card">
+              <h4 style={{ fontSize: '1.15rem', fontWeight: 700, marginBottom: '8px', color: 'var(--text-main)' }}>Site-First Thinking</h4>
+              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.55 }}>
+                Our engineers have spent time on plant floors. We design for the realities of industrial environments, not just the drawing board.
+              </p>
+            </div>
+
+            <div className="corner-card about-pillar-card">
+              <h4 style={{ fontSize: '1.15rem', fontWeight: 700, marginBottom: '8px', color: 'var(--text-main)' }}>Vendor Independence</h4>
+              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.55 }}>
+                We work across all major automation platforms and recommend what is right for your process &mdash; not what is convenient for us.
+              </p>
+            </div>
+
+            <div className="corner-card about-pillar-card">
+              <h4 style={{ fontSize: '1.15rem', fontWeight: 700, marginBottom: '8px', color: 'var(--text-main)' }}>Long-Term Support</h4>
+              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.55 }}>
+                We build relationships, not just systems. Our clients know they can call us after commissioning and we will be there.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Core Capabilities */}
+      <section className="section-padding" style={{ backgroundColor: '#ffffff' }}>
         <div className="container">
           <div className="section-header-centered" style={{ marginBottom: '30px' }}>
             <div className="section-eyebrow" style={{ justifyContent: 'center' }}>WHAT WE DO</div>
@@ -98,7 +170,6 @@ export default function AboutPage() {
           </div>
 
           <div className="capabilities-grid">
-            {/* 01 */}
             <div className="capability-card corner-card">
               <span className="cap-num">01</span>
               <h3 style={{ fontSize: '1.15rem', fontWeight: 700, marginBottom: '10px', color: 'var(--text-main)' }}>
@@ -109,7 +180,6 @@ export default function AboutPage() {
               </p>
             </div>
 
-            {/* 02 */}
             <div className="capability-card corner-card">
               <span className="cap-num">02</span>
               <h3 style={{ fontSize: '1.15rem', fontWeight: 700, marginBottom: '10px', color: 'var(--text-main)' }}>
@@ -120,7 +190,6 @@ export default function AboutPage() {
               </p>
             </div>
 
-            {/* 03 */}
             <div className="capability-card corner-card">
               <span className="cap-num">03</span>
               <h3 style={{ fontSize: '1.15rem', fontWeight: 700, marginBottom: '10px', color: 'var(--text-main)' }}>
@@ -131,7 +200,6 @@ export default function AboutPage() {
               </p>
             </div>
 
-            {/* 04 */}
             <div className="capability-card corner-card">
               <span className="cap-num">04</span>
               <h3 style={{ fontSize: '1.15rem', fontWeight: 700, marginBottom: '10px', color: 'var(--text-main)' }}>
@@ -142,7 +210,6 @@ export default function AboutPage() {
               </p>
             </div>
 
-            {/* 05 */}
             <div className="capability-card corner-card">
               <span className="cap-num">05</span>
               <h3 style={{ fontSize: '1.15rem', fontWeight: 700, marginBottom: '10px', color: 'var(--text-main)' }}>
@@ -153,7 +220,6 @@ export default function AboutPage() {
               </p>
             </div>
 
-            {/* 06 */}
             <div className="capability-card corner-card">
               <span className="cap-num">06</span>
               <h3 style={{ fontSize: '1.15rem', fontWeight: 700, marginBottom: '10px', color: 'var(--text-main)' }}>
@@ -167,11 +233,11 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Let's Work Together CTA (Matches image11.png bottom) */}
+      {/* Let's Work Together CTA */}
       <section className="cta-banner-section circuit-bg">
         <div className="container">
           <div className="cta-banner-content">
-            <h2 className="cta-banner-title">Let's Work Together</h2>
+            <h2 className="cta-banner-title">Let&apos;s Work Together</h2>
             <p className="cta-banner-sub">
               Whether you have a detailed specification or are still scoping your project, we are happy to have a technical conversation.
             </p>

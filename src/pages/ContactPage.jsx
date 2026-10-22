@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { submitEnquiry } from '../services/emailService';
+import DynamicTypewriter from '../components/DynamicTypewriter';
 
 export default function ContactPage({ onShowToast }) {
   const [formData, setFormData] = useState({
@@ -47,7 +48,9 @@ export default function ContactPage({ onShowToast }) {
       <section className="circuit-bg" style={{ padding: '70px 0 50px', color: '#ffffff' }}>
         <div className="container">
           <div className="section-eyebrow white">CONTACT</div>
-          <h1 className="section-title white" style={{ fontSize: '3rem' }}>Get in Touch</h1>
+          <h1 className="section-title white" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.2rem)' }}>
+            Connect for <DynamicTypewriter words={["Turnkey Automation", "PLC Commissioning", "SCADA Architecture", "IoT Telemetry", "Panel Fabrication"]} />
+          </h1>
           <p className="section-lead white">
             Tell us about your automation requirements. Our engineers will review your project and respond within 24 hours.
           </p>

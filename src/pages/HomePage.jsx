@@ -1,56 +1,50 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import CounterCard from '../components/CounterCard';
+import DynamicTypewriter from '../components/DynamicTypewriter';
 import { submitEnquiry } from '../services/emailService';
 
 const partnerLogos = [
-  { name: 'Siemens', src: '/assets/images/logos/siemens.png', alt: 'Siemens Industrial Automation' },
   { name: 'Schneider Electric', src: '/assets/images/logos/schneider.png', alt: 'Schneider Electric Modicon' },
   { name: 'Emerson', src: '/assets/images/logos/emerson.svg', alt: 'Emerson Process Systems' },
   { name: 'Phoenix Contact', src: '/assets/images/logos/phoenix.png', alt: 'Phoenix Contact' },
-  { name: 'Rockwell Automation', src: '/assets/images/logos/rockwell.png', alt: 'Rockwell Automation Allen-Bradley' },
+  { name: 'Honeywell', src: '/assets/images/logos/honeywell.png', alt: 'Honeywell Process Solutions' },
   { name: 'Delta Electronics', src: '/assets/images/logos/delta.png', alt: 'Delta Industrial Automation' },
   { name: 'Renu Electronics', src: '/assets/images/logos/renu.png', alt: 'Renu Electronics' },
   { name: 'Selec', src: '/assets/images/logos/selec.png', alt: 'Selec Controls' },
+  { name: 'GE Vernova', src: '/assets/images/logos/ge-vernova.png', alt: 'GE Vernova Automation' },
 ];
 
 const logoSequence = [...partnerLogos, ...partnerLogos];
 
 const industryPartners = [
   {
-    id: 'siemens',
-    name: 'Siemens',
-    logo: '/assets/images/logos/siemens.png',
-    desc: 'Industrial Automation Solutions',
-    alt: 'Siemens Industrial Automation'
-  },
-  {
-    id: 'phoenix-contact',
-    name: 'Phoenix Contact',
-    logo: '/assets/images/logos/phoenix.png',
-    desc: 'Process Solutions',
-    alt: 'Phoenix Contact Process Solutions'
-  },
-  {
     id: 'schneider',
     name: 'Schneider Electric',
     logo: '/assets/images/logos/schneider.png',
-    desc: 'Energy Management',
+    desc: 'Energy Management & EcoStruxure',
     alt: 'Schneider Electric Energy Management'
   },
   {
     id: 'emerson',
     name: 'Emerson',
     logo: '/assets/images/logos/emerson.svg',
-    desc: 'Process Systems & Solutions',
+    desc: 'Process Systems & Movicon.NExT SCADA',
     alt: 'Emerson Process Systems & Solutions'
   },
   {
-    id: 'rockwell',
-    name: 'Rockwell Automation',
-    logo: '/assets/images/logos/rockwell.png',
-    desc: 'Control Systems & Software',
-    alt: 'Rockwell Automation Control Systems & Software'
+    id: 'phoenix-contact',
+    name: 'Phoenix Contact',
+    logo: '/assets/images/logos/phoenix.png',
+    desc: 'Process Solutions & Industrial Cyber',
+    alt: 'Phoenix Contact Process Solutions'
+  },
+  {
+    id: 'honeywell',
+    name: 'Honeywell',
+    logo: '/assets/images/logos/honeywell.png',
+    desc: 'Process Solutions & Building Control',
+    alt: 'Honeywell Process Solutions'
   },
   {
     id: 'delta',
@@ -63,15 +57,22 @@ const industryPartners = [
     id: 'renu',
     name: 'Renu Electronics',
     logo: '/assets/images/logos/renu.png',
-    desc: 'Factory Automation & HMI',
+    desc: 'Factory Automation & HMI Displays',
     alt: 'Renu Electronics Factory Automation & HMI'
   },
   {
     id: 'selec',
     name: 'Selec',
     logo: '/assets/images/logos/selec.png',
-    desc: 'Factory Automation',
+    desc: 'Factory Automation & Energy Meters',
     alt: 'Selec Controls Factory Automation'
+  },
+  {
+    id: 'ge-vernova',
+    name: 'GE Vernova',
+    logo: '/assets/images/logos/ge-vernova.png',
+    desc: 'Energy & Substation Automation',
+    alt: 'GE Vernova Automation'
   }
 ];
 
@@ -89,7 +90,7 @@ const serviceCards = [
       'Integrated safety relays, emergency stop circuits, and surge protection (SPD)',
       'Comprehensive FAT (Factory Acceptance Testing) and wire-by-wire continuity validation'
     ],
-    platforms: 'Rittal, Schneider Electric, Siemens, L&T, ABB, Delta Enclosures',
+    platforms: 'Rittal, Schneider Electric, L&T, ABB, Delta Enclosures',
     standards: 'IEC 61439-1/2, IP55/IP65 Ingress Protection, CE & UL 508A compliant practices'
   },
   {
@@ -105,14 +106,14 @@ const serviceCards = [
       'Precision analog process control with self-tuning PID algorithms (Temperature, Pressure, Flow)',
       'Non-intrusive retrofit logic updates with zero production disruption'
     ],
-    platforms: 'Siemens S7-1200/1500 (TIA Portal), Allen-Bradley ControlLogix, Delta DVP, Schneider Modicon, Emerson DeltaV',
+    platforms: 'Delta DVP / AS Series, Schneider Modicon, Emerson DeltaV, Omron Sysmac, Mitsubishi MELSEC',
     standards: 'IEC 61131-3, ISA-88 Batch Control, SIL-2/SIL-3 Functional Safety'
   },
   {
     id: 'scada-designing',
     title: 'SCADA Designing',
     tag: 'CENTRALIZED SUPERVISORY CONTROL',
-    image: '/assets/images/scada-control-room-hd.jpg',
+    image: '/assets/images/scada/movicon-next-wastewater-treatment.jpg',
     shortDesc: 'Real-time supervisory control dashboards with live animated plant mimics, historical trending, and automated alarms for plant-wide visibility.',
     fullDesc: 'Architecting high-availability SCADA control systems delivering mission-critical telemetry, multi-monitor control room visualizations, and enterprise SQL/Historian logging for power plants and process industries.',
     features: [
@@ -121,7 +122,7 @@ const serviceCards = [
       'Secure multi-protocol drivers: Modbus TCP/RTU, OPC-UA/DA, IEC 60870-5-104, DNP3',
       'Real-time historian database logging with automated production shift reports'
     ],
-    platforms: 'Wonderware / AVEVA System Platform, Ignition SCADA, Siemens WinCC, Emerson DeltaV, Schneider EcoStruxure',
+    platforms: 'Progea Movicon.NExT, Ignition SCADA, Wonderware / AVEVA System Platform, Emerson DeltaV, Schneider EcoStruxure',
     standards: 'ISA-101 HMI/SCADA Design, 21 CFR Part 11 Electronic Records, NERC CIP Cybersecurity'
   },
   {
@@ -137,7 +138,7 @@ const serviceCards = [
       'Direct hardware I/O diagnostic screens for rapid fault localization without laptops',
       'Dual Ethernet / RS-485 serial communication with instant PLC synchronization'
     ],
-    platforms: 'Delta DOP-100 Series, Siemens Simatic Comfort Panels, Schneider Magelis / Harmony, Renu FlexiPanels',
+    platforms: 'Progea Movicon.NExT HMI, Delta DOP-100 Series, Schneider Magelis / Harmony, Renu FlexiPanels',
     standards: 'ISA-101 Ergonomic Guidelines, IP66 Front Bezel Protection, IEC 60068 Environmental Testing'
   },
   {
@@ -226,7 +227,8 @@ export default function HomePage({ onShowToast }) {
               INDUSTRIAL AUTOMATION &bull; PAN-INDIA SOLUTIONS
             </div>
             <h1 className="hero-title">
-              Precision Automation.<br />Intelligent Control.
+              Precision Automation<br />
+              <DynamicTypewriter words={["Intelligent Control", "Industrial IoT", "Real-Time SCADA", "Zero Downtime", "High-Speed PLC"]} />
             </h1>
             <p className="hero-subtitle">
               PLC &amp; SCADA systems and Industrial IoT solutions engineered for power generation, process industries, and manufacturing across India and beyond.
@@ -237,7 +239,7 @@ export default function HomePage({ onShowToast }) {
             </div>
 
             {/* Live Counters Grid */}
-            <div className="live-counter-grid" style={{ marginTop: '40px', textAlign: 'left' }}>
+            <div className="live-counter-grid" style={{ marginTop: '40px', marginBottom: '0', textAlign: 'left' }}>
               <CounterCard
                 target="30"
                 prefix="↓ "
@@ -402,9 +404,97 @@ export default function HomePage({ onShowToast }) {
         </div>
       )}
 
+      {/* Movicon.NExT SCADA & Real-Time Mimic Telemetry Showcase */}
+      <section className="movicon-showcase-section" id="scada-showcase">
+        <div className="container">
+          <div style={{ textAlign: 'center', maxWidth: '850px', margin: '0 auto' }}>
+            <div className="movicon-badge-pill">
+              <span className="live-pulse-dot" style={{ display: 'inline-block' }}></span>
+              MOVICON.NExT™ CERTIFIED SCADA ENGINEERING
+            </div>
+            <h2 className="section-title white" style={{ marginBottom: '14px' }}>
+              Real-World Process Automation &amp; 3D Telemetry
+            </h2>
+            <p className="section-lead white" style={{ margin: '0 auto' }}>
+              Engineered by Chitai Soft Automation: High-performance ISA-101 compliant SCADA screens deployed with Emerson Progea Movicon.NExT™ for continuous municipal and industrial plant monitoring.
+            </p>
+          </div>
+
+          <div className="movicon-cards-grid">
+            {/* Card 1: Wastewater Treatment 3D Isometric View */}
+            <div className="movicon-card">
+              <div className="movicon-img-wrap">
+                <img
+                  src="/assets/images/scada/movicon-next-wastewater-treatment.jpg"
+                  alt="Movicon.NExT Wastewater Treatment Plant 3D Isometric View & Multi-Channel Flow Telemetry"
+                  loading="lazy"
+                />
+                <span className="movicon-screen-badge">3D PLANT MIMIC &amp; TRENDS</span>
+                <span className="movicon-status-badge">
+                  <span className="live-pulse-dot"></span> LIVE TELEMETRY
+                </span>
+              </div>
+              <div className="movicon-body">
+                <span className="movicon-tag">MUNICIPAL &amp; INDUSTRIAL WASTEWATER</span>
+                <h3 className="movicon-title">Wastewater Treatment 3D Isometric Telemetry</h3>
+                <p className="movicon-desc">
+                  Full 3D isometric layout monitoring screening, aeration basins, secondary clarifiers, and pumping stations with synchronized multi-channel historical flow trend logging (primary, secondary, and discharge) alongside continuous effluent chemical telemetry (pH, Nitrogen, Phosphorus, Potassium).
+                </p>
+                <div className="movicon-pills">
+                  <span className="movicon-pill">4-Channel Trend Historian</span>
+                  <span className="movicon-pill">Effluent Parameter Tracking</span>
+                  <span className="movicon-pill">ISA-101 Ergonomic Colors</span>
+                  <span className="movicon-pill">Automated Alarm Routing</span>
+                </div>
+                <div className="movicon-meta-strip">
+                  <span>Platform: Progea Movicon.NExT™</span>
+                  <span>Protocol: OPC-UA &amp; Modbus TCP</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 2: Anaerobic Digester & Clarifier Process Mimic */}
+            <div className="movicon-card">
+              <div className="movicon-img-wrap">
+                <img
+                  src="/assets/images/scada/movicon-next-process-clarifier.jpg"
+                  alt="Movicon.NExT Clarifier & Anaerobic Digestion Industrial Process Mimic"
+                  loading="lazy"
+                />
+                <span className="movicon-screen-badge">PROCESS P&amp;ID &amp; BIOGAS FLOW</span>
+                <span className="movicon-status-badge">
+                  <span className="live-pulse-dot"></span> ACTIVE SUPERVISION
+                </span>
+              </div>
+              <div className="movicon-body">
+                <span className="movicon-tag">PROCESS INDUSTRIES &amp; BIO-ENERGY</span>
+                <h3 className="movicon-title">Anaerobic Digester &amp; Clarifier Mimic</h3>
+                <p className="movicon-desc">
+                  Dynamic animated P&amp;ID flow visualization coordinating mechanical thickeners, high-temperature clarifiers, anaerobic digestion vessels, and biogas extraction pipelines. Features millisecond thermal trip alarm prioritization, sludge dehydration sequencing, and dual auto/manual interlocks.
+                </p>
+                <div className="movicon-pills">
+                  <span className="movicon-pill">High-Temp Thermal Trip Interlocks</span>
+                  <span className="movicon-pill">Biogas Routing &amp; Flow Metering</span>
+                  <span className="movicon-pill">Sludge Dehydration Control</span>
+                  <span className="movicon-pill">Dual Auto / Manual Logic</span>
+                </div>
+                <div className="movicon-meta-strip">
+                  <span>Platform: Progea Movicon.NExT™</span>
+                  <span>Safety: SIL-2 High Temp Interlocks</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 8 Industry Partner Logo Cards (White Background) */}
       <section className="trusted-partners-section" id="partners-section">
         <div className="container">
+          <p className="partners-subtext-heading">
+            We collaborate with the world&apos;s leading technology companies to deliver cutting-edge automation solutions
+          </p>
+
           <div className="partners-cards-grid">
             {industryPartners.map((partner) => (
               <div className="partner-card-light" key={partner.id}>
@@ -433,7 +523,9 @@ export default function HomePage({ onShowToast }) {
             <div className="enquiry-info-box">
               <div>
                 <div className="section-eyebrow white">GET IN TOUCH</div>
-                <h2 className="section-title white">Ready to Automate Your Plant?</h2>
+                <h2 className="section-title white">
+                  Ready to Automate Your <DynamicTypewriter words={["Plant", "Production Lines", "Control Architecture", "Substations"]} />?
+                </h2>
                 <p className="section-lead white" style={{ marginTop: '14px' }}>
                   Tell us about your process. Our engineers will assess your requirements and propose the right automation architecture.
                 </p>
