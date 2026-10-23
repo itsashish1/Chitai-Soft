@@ -7,7 +7,7 @@ import DynamicTypewriter from '../components/DynamicTypewriter';
 const SERVICES_FAQS = [
   {
     question: "Which PLC and SCADA platforms does Chitai Soft Automation support?",
-    answer: "Chitai Soft Automation specializes in multi-vendor integration across four major OEM platforms: <strong>Emerson</strong> (DeltaV DCS, Ovation, PACSystems), <strong>Schneider Electric</strong> (Modicon M221/M241/M251/M580, EcoStruxure), <strong>Delta Electronics</strong> (DVP Series PLCs, DOP HMIs, VFDs), and <strong>Renu Electronics</strong> (FlexiPanels HMI+PLC combo units, protocol gateways)."
+    answer: "Chitai Soft Automation specializes in multi-vendor integration across four major OEM platforms: <strong>Emerson</strong> (PACSystems RX3i PLCs), <strong>Schneider Electric</strong> (Modicon M221/M241/M251/M580, EcoStruxure), <strong>Delta Electronics</strong> (DVP Series PLCs, DOP HMIs, VFDs), and <strong>Renu Electronics</strong> (FlexiPanels HMI+PLC combo units, protocol gateways)."
   },
   {
     question: "How do you integrate Industrial IoT with legacy PLCs without rip-and-replace?",
@@ -80,7 +80,7 @@ const SERVICES_DATA = [
     category: 'energy-monitoring',
     title: 'Energy & Power Management Systems',
     tag: 'POWER OPTIMIZATION',
-    image: '/assets/images/plc-control-panel-hd.jpg',
+    image: '/assets/images/scada/movicon-next-process-clarifier.jpg',
     shortDesc: 'Substation metering, load curve analytics, and automated power factor correction to eliminate utility penalty charges.',
     fullDesc: 'Comprehensive electrical power monitoring and load analytics across plant transformers, feeders, and heavy motor loads. Automates power factor correction capacitor staging and alerts engineers to peak demand spikes to reduce industrial tariff bills.',
     features: [
@@ -263,13 +263,13 @@ export default function ServicesPage() {
               <div>
                 <div className="brand-badge">EMERSON</div>
                 <p className="brand-platforms">
-                  DeltaV DCS, Ovation control systems, PACSystems RX3i PLCs, and Rosemount instrumentation.
+                  PACSystems RX3i PLCs and industrial control solutions.
                 </p>
               </div>
               <div className="brand-pill-tags">
-                <span className="brand-pill">DeltaV</span>
                 <span className="brand-pill">PACSystems</span>
-                <span className="brand-pill">Ovation</span>
+                <span className="brand-pill">RX3i PLC</span>
+                <span className="brand-pill">Emerson Logic</span>
               </div>
             </div>
 

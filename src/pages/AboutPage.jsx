@@ -52,19 +52,12 @@ export default function AboutPage() {
                   Chitai Soft Automation was founded with a single purpose &mdash; to bring dependable, well-engineered automation to Indian industry. We work with plant operators, project managers, and engineering teams across the country to design, commission, and support industrial control systems that perform.
                 </p>
                 <p>
-                  From our early projects in power generation to our current work across oil &amp; gas, water treatment, and process industries, we have built a reputation for technical rigour and straightforward delivery. We do not over-promise. We scope carefully, engineer thoroughly, and stand behind our work.
-                </p>
-                <p>
                   Our team combines hands-on site experience with deep knowledge of PLC programming, SCADA development, and Industrial IoT &mdash; giving clients a single point of accountability from design through commissioning and beyond.
                 </p>
               </div>
 
               {/* Automax-Style Stats Strip */}
-              <div className="automax-stat-strip">
-                <div className="automax-stat-item">
-                  <div className="automax-stat-number">500+</div>
-                  <div className="automax-stat-label">Panels &amp; Projects</div>
-                </div>
+              <div className="automax-stat-strip" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
                 <div className="automax-stat-item">
                   <div className="automax-stat-number">99.8%</div>
                   <div className="automax-stat-label">Plant Reliability</div>

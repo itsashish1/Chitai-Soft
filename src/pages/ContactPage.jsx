@@ -200,7 +200,7 @@ export default function ContactPage({ onShowToast }) {
                     <option value="plc-scada">PLC &amp; SCADA Systems</option>
                     <option value="iiot">Industrial IoT &amp; Smart Manufacturing</option>
                     <option value="control-panels">Control Panel Design &amp; Build</option>
-                    <option value="emerson">Emerson DeltaV / Ovation / PACSystems</option>
+                    <option value="emerson">Emerson PACSystems PLCs</option>
                     <option value="schneider">Schneider Electric Modicon / EcoStruxure</option>
                     <option value="delta">Delta PLC &amp; VFD Automation</option>
                     <option value="renu">Renu Electronics HMI / Gateways</option>

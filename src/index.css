@@ -2764,17 +2764,21 @@ select {
 .service-modal-image-wrap {
   position: relative;
   width: 100%;
-  height: 220px;
+  height: 270px;
   overflow: hidden;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
-  background: #051a3b;
+  background: radial-gradient(circle at center, #0a2540 0%, #020b18 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .service-modal-image-wrap img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  padding: 8px 12px;
 }
 
 .service-modal-tag {
@@ -2891,8 +2895,12 @@ select {
 }
 
 @media (max-width: 600px) {
+  .service-modal-image-wrap {
+    height: 230px;
+  }
+
   .service-modal-body {
-    padding: 20px 18px 24px;
+    padding: 18px 16px 22px;
   }
 
   .service-modal-specs {
