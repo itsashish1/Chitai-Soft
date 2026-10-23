@@ -151,6 +151,24 @@ const serviceCards = [
   }
 ];
 
+const scadaProject = {
+  id: 'wastewater-scada',
+  title: 'Wastewater Treatment SCADA',
+  tag: 'MUNICIPAL & INDUSTRIAL WASTEWATER',
+  image: '/assets/images/scada/movicon-next-wastewater-treatment.jpg',
+  shortDesc: 'Supervisory control and real-time telemetry for wastewater treatment plants featuring live 3D mimics, flow analytics, and automated alarm dispatch.',
+  fullDesc: 'SCADA systems provide real-time process monitoring, equipment status, alarm notifications, historical trends, and reports — all from one user-friendly dashboard.',
+  features: [
+    'Live Plant Monitoring: View plant status and process readings in real time.',
+    'Flow Monitoring: Track inlet, process, and outlet water flow.',
+    'Water Quality Monitoring: Monitor pH and other supported water quality parameters.',
+    'Trends & Reports: View historical data and analyze plant performance.',
+    'Alarm Notifications: Get alerts for abnormal readings and equipment issues.',
+    'Plant Overview: View important plant equipment and process information on one screen.'
+  ],
+  platforms: 'Progea Movicon.NExT™ (Protocol: OPC-UA & Modbus TCP)'
+};
+
 export default function HomePage({ onShowToast }) {
   const [formData, setFormData] = useState({
     user_name: '',
@@ -340,14 +358,29 @@ export default function HomePage({ onShowToast }) {
               <div className="service-modal-features">
                 <h4 className="service-modal-subheading">Key Engineering Capabilities</h4>
                 <ul className="service-modal-list">
-                  {selectedService.features.map((feature, idx) => (
-                    <li key={idx}>
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                      </svg>
-                      <span>{feature}</span>
-                    </li>
-                  ))}
+                  {selectedService.features.map((feature, idx) => {
+                    const colonIdx = feature.indexOf(':');
+                    if (colonIdx !== -1) {
+                      const title = feature.substring(0, colonIdx);
+                      const desc = feature.substring(colonIdx + 1);
+                      return (
+                        <li key={idx}>
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                          </svg>
+                          <span><strong>{title}:</strong>{desc}</span>
+                        </li>
+                      );
+                    }
+                    return (
+                      <li key={idx}>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                          <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>{feature}</span>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
 
@@ -398,13 +431,17 @@ export default function HomePage({ onShowToast }) {
             </p>
           </div>
 
-          <div className="movicon-cards-grid" style={{ maxWidth: '800px', margin: '42px auto 0', gridTemplateColumns: '1fr' }}>
-            {/* Wastewater Treatment SCADA */}
-            <div className="movicon-card">
+          <div style={{ maxWidth: '440px', margin: '36px auto 0' }}>
+            {/* Wastewater Treatment SCADA Normal Card */}
+            <div 
+              className="movicon-card" 
+              style={{ textAlign: 'left', cursor: 'pointer' }}
+              onClick={() => setSelectedService(scadaProject)}
+            >
               <div className="movicon-img-wrap">
                 <img
-                  src="/assets/images/scada/movicon-next-wastewater-treatment.jpg"
-                  alt="Movicon.NExT Wastewater Treatment Plant SCADA & Multi-Channel Flow Telemetry"
+                  src={scadaProject.image}
+                  alt={scadaProject.title}
                   loading="lazy"
                 />
                 <span className="movicon-screen-badge">3D PLANT MIMIC &amp; TRENDS</span>
@@ -412,38 +449,37 @@ export default function HomePage({ onShowToast }) {
                   <span className="live-pulse-dot"></span> LIVE TELEMETRY
                 </span>
               </div>
-              <div className="movicon-body">
-                <span className="movicon-tag">MUNICIPAL &amp; INDUSTRIAL WASTEWATER</span>
-                <h3 className="movicon-title">Wastewater Treatment SCADA</h3>
-                <ul className="wastewater-scada-bullets" style={{ listStyle: 'none', padding: 0, margin: '20px 0', display: 'flex', flexDirection: 'column', gap: '11px' }}>
-                  <li style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', color: '#e2e8f0', fontSize: '0.94rem', lineHeight: 1.55 }}>
-                    <span style={{ color: '#38bdf8', fontWeight: 'bold' }}>&bull;</span>
-                    <span><strong style={{ color: '#ffffff' }}>Live Plant Monitoring:</strong> View plant status and process readings in real time.</span>
-                  </li>
-                  <li style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', color: '#e2e8f0', fontSize: '0.94rem', lineHeight: 1.55 }}>
-                    <span style={{ color: '#38bdf8', fontWeight: 'bold' }}>&bull;</span>
-                    <span><strong style={{ color: '#ffffff' }}>Flow Monitoring:</strong> Track inlet, process, and outlet water flow.</span>
-                  </li>
-                  <li style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', color: '#e2e8f0', fontSize: '0.94rem', lineHeight: 1.55 }}>
-                    <span style={{ color: '#38bdf8', fontWeight: 'bold' }}>&bull;</span>
-                    <span><strong style={{ color: '#ffffff' }}>Water Quality Monitoring:</strong> Monitor pH and other supported water quality parameters.</span>
-                  </li>
-                  <li style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', color: '#e2e8f0', fontSize: '0.94rem', lineHeight: 1.55 }}>
-                    <span style={{ color: '#38bdf8', fontWeight: 'bold' }}>&bull;</span>
-                    <span><strong style={{ color: '#ffffff' }}>Trends &amp; Reports:</strong> View historical data and analyze plant performance.</span>
-                  </li>
-                  <li style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', color: '#e2e8f0', fontSize: '0.94rem', lineHeight: 1.55 }}>
-                    <span style={{ color: '#38bdf8', fontWeight: 'bold' }}>&bull;</span>
-                    <span><strong style={{ color: '#ffffff' }}>Alarm Notifications:</strong> Get alerts for abnormal readings and equipment issues.</span>
-                  </li>
-                  <li style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', color: '#e2e8f0', fontSize: '0.94rem', lineHeight: 1.55 }}>
-                    <span style={{ color: '#38bdf8', fontWeight: 'bold' }}>&bull;</span>
-                    <span><strong style={{ color: '#ffffff' }}>Plant Overview:</strong> View important plant equipment and process information on one screen.</span>
-                  </li>
-                </ul>
-                <div className="movicon-meta-strip">
-                  <span>Platform: Progea Movicon.NExT™</span>
-                  <span>Protocol: OPC-UA &amp; Modbus TCP</span>
+              <div className="movicon-body" style={{ padding: '22px 24px' }}>
+                <span className="movicon-tag">{scadaProject.tag}</span>
+                <h3 className="movicon-title" style={{ fontSize: '1.25rem', margin: '8px 0 10px' }}>
+                  {scadaProject.title}
+                </h3>
+                <p className="movicon-desc" style={{ fontSize: '0.9rem', color: '#94a3b8', lineHeight: '1.55', marginBottom: '20px' }}>
+                  {scadaProject.shortDesc}
+                </p>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 'auto', paddingTop: '16px', borderTop: '1px solid rgba(255, 255, 255, 0.08)' }}>
+                  <button
+                    type="button"
+                    className="service-learn-more-btn"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedService(scadaProject);
+                    }}
+                    style={{ color: '#38bdf8', fontSize: '0.92rem', cursor: 'pointer', background: 'none', border: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px', fontWeight: 600 }}
+                  >
+                    Learn More &rarr;
+                  </button>
+                  <button
+                    type="button"
+                    className="btn btn-outline"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedService(scadaProject);
+                    }}
+                    style={{ padding: '6px 14px', fontSize: '0.8rem', color: '#e2e8f0', borderColor: 'rgba(56, 189, 248, 0.35)', borderRadius: '6px', cursor: 'pointer' }}
+                  >
+                    View Details
+                  </button>
                 </div>
               </div>
             </div>
