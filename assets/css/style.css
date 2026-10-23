@@ -13,7 +13,7 @@
   --accent-blue: #1976d2;
   --accent-cyan: #00b4d8;
   --accent-light: #e8f2fc;
-  
+
   --text-main: #0f172a;
   --text-muted: #475569;
   --text-light: #94a3b8;
@@ -23,7 +23,7 @@
   --bg-white: #ffffff;
   --bg-light: #f8fafc;
   --bg-card: #ffffff;
-  
+
   --border-light: #e2e8f0;
   --border-blue: #cbd5e1;
   --corner-bracket-color: #93c5fd;
@@ -38,7 +38,9 @@
 }
 
 /* Reset & Box Sizing */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -71,7 +73,10 @@ a {
   transition: var(--transition);
 }
 
-button, input, textarea, select {
+button,
+input,
+textarea,
+select {
   font-family: inherit;
 }
 
@@ -95,7 +100,7 @@ button, input, textarea, select {
 /* Circuit Grid Pattern for Blue Sections */
 .circuit-bg {
   background-color: var(--primary-navy);
-  background-image: 
+  background-image:
     radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 20%),
     radial-gradient(circle at 90% 80%, rgba(0, 180, 216, 0.08) 0%, transparent 30%),
     linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
@@ -108,7 +113,7 @@ button, input, textarea, select {
   content: "";
   position: absolute;
   inset: 0;
-  background: 
+  background:
     radial-gradient(1px 1px at 48px 48px, rgba(255, 255, 255, 0.15), transparent),
     radial-gradient(1px 1px at 96px 96px, rgba(0, 180, 216, 0.25), transparent);
   background-size: 96px 96px;
@@ -476,7 +481,8 @@ button, input, textarea, select {
   transition: var(--transition);
 }
 
-.filter-tab:hover, .filter-tab.active {
+.filter-tab:hover,
+.filter-tab.active {
   background: #ffffff;
   color: var(--primary-navy);
   border-color: #ffffff;
@@ -767,7 +773,9 @@ button, input, textarea, select {
   margin-bottom: 8px;
 }
 
-.form-input, .form-textarea, .form-select {
+.form-input,
+.form-textarea,
+.form-select {
   width: 100%;
   padding: 12px 16px;
   font-size: 1rem;
@@ -778,7 +786,9 @@ button, input, textarea, select {
   transition: var(--transition);
 }
 
-.form-input:focus, .form-textarea:focus, .form-select:focus {
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
   outline: none;
   border-color: var(--primary-blue);
   box-shadow: 0 0 0 3px rgba(13, 71, 161, 0.14);
@@ -1433,7 +1443,17 @@ button, input, textarea, select {
    Responsive Breakpoints
    ========================================================================== */
 @media (max-width: 1200px) {
-  .grid-2, .grid-3, .grid-4, .primary-vertical-card, .enquiry-grid, .location-up-grid, .contact-layout-grid, .about-hero-grid, .industry-detail-block, .industry-detail-block:nth-child(even) {
+
+  .grid-2,
+  .grid-3,
+  .grid-4,
+  .primary-vertical-card,
+  .enquiry-grid,
+  .location-up-grid,
+  .contact-layout-grid,
+  .about-hero-grid,
+  .industry-detail-block,
+  .industry-detail-block:nth-child(even) {
     grid-template-columns: 1fr;
   }
 
@@ -1498,7 +1518,13 @@ button, input, textarea, select {
     font-size: 1rem;
   }
 
-  .form-group-row, .sub-industry-cards, .industry-bullets-grid, .capabilities-grid, .process-grid, .footer-top-grid, .about-pillars-grid {
+  .form-group-row,
+  .sub-industry-cards,
+  .industry-bullets-grid,
+  .capabilities-grid,
+  .process-grid,
+  .footer-top-grid,
+  .about-pillars-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1583,10 +1609,12 @@ button, input, textarea, select {
     transform: scale(0.9);
     opacity: 0.9;
   }
+
   70% {
     transform: scale(2.5);
     opacity: 0;
   }
+
   100% {
     transform: scale(2.8);
     opacity: 0;
@@ -1813,6 +1841,7 @@ button, input, textarea, select {
     opacity: 0;
     transform: translateY(12px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1930,6 +1959,7 @@ button, input, textarea, select {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }
@@ -2013,16 +2043,19 @@ button, input, textarea, select {
   .partner-marquee-strip {
     padding: 14px 0;
   }
+
   .partner-marquee-strip .marquee-track {
     gap: 18px;
     animation: marqueeScroll 24s linear infinite;
   }
+
   .partner-logo-badge {
     height: 46px;
     min-width: 110px;
     padding: 6px 16px;
     border-radius: 10px;
   }
+
   .partner-logo-img {
     max-height: 26px;
     max-width: 95px;
@@ -2146,8 +2179,13 @@ button, input, textarea, select {
 }
 
 @keyframes modalFadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .service-modal-card {
@@ -2167,6 +2205,7 @@ button, input, textarea, select {
     transform: translateY(24px) scale(0.96);
     opacity: 0;
   }
+
   to {
     transform: translateY(0) scale(1);
   }
@@ -2331,13 +2370,16 @@ button, input, textarea, select {
   .service-modal-body {
     padding: 20px 18px 24px;
   }
+
   .service-modal-specs {
     grid-template-columns: 1fr;
   }
+
   .service-modal-footer {
     flex-direction: column;
     width: 100%;
   }
+
   .service-modal-footer button {
     width: 100%;
   }
@@ -2443,10 +2485,12 @@ button, input, textarea, select {
   .trusted-partners-section {
     padding: 45px 0 55px;
   }
+
   .partners-cards-grid {
     grid-template-columns: 1fr;
     gap: 16px;
   }
+
   .partner-card-light {
     padding: 26px 18px;
   }
@@ -2835,8 +2879,17 @@ button, input, textarea, select {
 }
 
 @keyframes dynamicCursorBlink {
-  0%, 100% { opacity: 1; filter: drop-shadow(0 0 8px #38bdf8); }
-  50% { opacity: 0; filter: none; }
+
+  0%,
+  100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 8px #38bdf8);
+  }
+
+  50% {
+    opacity: 0;
+    filter: none;
+  }
 }
 
 /* ==========================================================================
@@ -3182,7 +3235,3 @@ button, input, textarea, select {
   color: #64748b;
   font-family: var(--font-mono, monospace);
 }
-
-
-
-

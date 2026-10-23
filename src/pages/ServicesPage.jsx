@@ -46,7 +46,7 @@ const SERVICES_DATA = [
     category: 'plc-scada',
     title: 'SCADA Systems & Centralized HMI',
     tag: 'SUPERVISORY CONTROL',
-    image: '/assets/images/scada/movicon-next-process-clarifier.jpg',
+    image: '/assets/images/scada-control-room-hd.jpg',
     shortDesc: 'Custom supervisory control platforms with live animated mimics, multi-station consoles, dynamic trends, and alarm escalation.',
     fullDesc: 'Custom SCADA platforms and ergonomic touchscreen HMIs that provide operators and plant managers complete process visibility. Built with high-availability server pairs, role-based security, historical logging, and ISA-18.2 compliant alarm management.',
     features: [
@@ -55,7 +55,7 @@ const SERVICES_DATA = [
       'High-speed historical data trending, recipe management, and batch reports',
       'Secure multi-tier role-based access control with comprehensive audit trails'
     ],
-    platforms: 'Progea Movicon.NExT™, Ignition SCADA, Wonderware, EcoStruxure Geo SCADA, Delta DOP-100',
+    platforms: 'Wonderware, Ignition, EcoStruxure Geo SCADA, Delta DOP-100',
     standards: 'ISA-101 HMI Design, ISA-18.2 Alarm Management'
   },
   {
@@ -106,7 +106,7 @@ const SERVICES_DATA = [
       'Encrypted TLS 1.3 telemetry pipelines with offline data store-and-forward',
       'Custom web & mobile dashboards with production KPI visualization'
     ],
-    platforms: 'AWS IoT Core, Microsoft Azure IoT, Raspberry Pi CM4 / Advantech Industrial Edge Gateways',
+    platforms: 'AWS IoT Core, Microsoft Azure IoT, Raspberry Pi CM4 / Siemens IOT2050',
     standards: 'IEC 62443 Industrial Cybersecurity, OPC Foundation Certified'
   },
   {
@@ -438,14 +438,10 @@ export default function ServicesPage() {
                 </ul>
               </div>
 
-              <div className="service-modal-specs">
+              <div className="service-modal-specs" style={{ gridTemplateColumns: '1fr' }}>
                 <div className="service-spec-box">
                   <span className="spec-label">Platforms &amp; Hardware</span>
                   <span className="spec-val">{selectedService.platforms}</span>
-                </div>
-                <div className="service-spec-box">
-                  <span className="spec-label">Standards &amp; Quality</span>
-                  <span className="spec-val">{selectedService.standards}</span>
                 </div>
               </div>
 

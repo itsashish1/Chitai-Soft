@@ -58,9 +58,9 @@ const INDUSTRIES_DATA = [
     category: 'water-wastewater',
     title: 'Water & Wastewater Treatment',
     tag: 'MUNICIPAL & INDUSTRIAL',
-    image: '/assets/images/scada/movicon-next-wastewater-treatment.jpg',
+    image: '/assets/images/industry-water.png',
     shortDesc: 'Automated chemical dosing, filtration sequencing, and wide-area SCADA telemetry for municipal pumping and ETP plants.',
-    fullDesc: 'Intelligent automation for water treatment facilities, sewage networks, and industrial effluent treatment plants. Deployed with Emerson Progea Movicon.NExT™ 3D isometric mimics, coordinating remote booster stations and optimizing aeration blower VFD speeds to reduce electrical costs by up to 20%.',
+    fullDesc: 'Intelligent automation for water treatment facilities, sewage networks, and industrial effluent treatment plants. Coordinates remote booster stations and optimizes aeration blower VFD speeds to reduce electrical costs by up to 20%.',
     features: [
       'Automated chemical dosing, flocculation, and backwash filtration control',
       'Remote booster & lift station pump cycling with ultrasonic level telemetry',
@@ -68,7 +68,7 @@ const INDUSTRIES_DATA = [
       'Aeration blower VFD modulation and energy consumption optimization'
     ],
     standards: 'CPHEEO Water Guidelines, CPCB Effluent Compliance',
-    protocols: 'Progea Movicon.NExT™, OPC-UA, Modbus TCP, Cellular MQTT Telemetry'
+    protocols: 'OPC-UA, Modbus TCP, Cellular MQTT Telemetry'
   },
   {
     id: 'automotive-discrete',

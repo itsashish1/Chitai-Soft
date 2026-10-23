@@ -38,7 +38,7 @@ export default function ContactPage({ onShowToast }) {
     } catch (err) {
       console.error(err);
       setSubmitting(false);
-      onShowToast('Unable to send enquiry automatically. Please email info@chitaisoftautomation.in directly.', 'error');
+      onShowToast('Unable to send enquiry automatically. Please email chitaisoft@gmail.com directly.', 'error');
     }
   };
 
@@ -75,6 +75,7 @@ export default function ContactPage({ onShowToast }) {
                   <div className="contact-label">SERVICE COVERAGE</div>
                   <div className="contact-val">
                     Chitai Soft Automation<br />
+                    Lucknow, Uttar Pradesh<br />
                     Pan-India Service &amp; Support
                   </div>
                 </div>
@@ -99,8 +100,7 @@ export default function ContactPage({ onShowToast }) {
                 <div>
                   <div className="contact-label">EMAIL</div>
                   <div className="contact-val">
-                    <a href="mailto:info@chitaisoftautomation.in" style={{ color: 'var(--primary-blue)', display: 'block', fontWeight: 600 }}>info@chitaisoftautomation.in</a>
-                    <a href="mailto:chitaisoft@gmail.com" style={{ color: 'var(--primary-blue)', display: 'block', fontWeight: 600, marginTop: '4px' }}>chitaisoft@gmail.com</a>
+                    <a href="mailto:chitaisoft@gmail.com" style={{ color: 'var(--primary-blue)', display: 'block', fontWeight: 600 }}>chitaisoft@gmail.com</a>
                   </div>
                 </div>
               </div>

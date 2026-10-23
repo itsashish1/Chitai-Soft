@@ -8,7 +8,6 @@ const partnerLogos = [
   { name: 'Schneider Electric', src: '/assets/images/logos/schneider.png', alt: 'Schneider Electric Modicon' },
   { name: 'Emerson', src: '/assets/images/logos/emerson.svg', alt: 'Emerson Process Systems' },
   { name: 'Phoenix Contact', src: '/assets/images/logos/phoenix.png', alt: 'Phoenix Contact' },
-  { name: 'Honeywell', src: '/assets/images/logos/honeywell.png', alt: 'Honeywell Process Solutions' },
   { name: 'Delta Electronics', src: '/assets/images/logos/delta.png', alt: 'Delta Industrial Automation' },
   { name: 'Renu Electronics', src: '/assets/images/logos/renu.png', alt: 'Renu Electronics' },
   { name: 'Selec', src: '/assets/images/logos/selec.png', alt: 'Selec Controls' },
@@ -38,13 +37,6 @@ const industryPartners = [
     logo: '/assets/images/logos/phoenix.png',
     desc: 'Process Solutions & Industrial Cyber',
     alt: 'Phoenix Contact Process Solutions'
-  },
-  {
-    id: 'honeywell',
-    name: 'Honeywell',
-    logo: '/assets/images/logos/honeywell.png',
-    desc: 'Process Solutions & Building Control',
-    alt: 'Honeywell Process Solutions'
   },
   {
     id: 'delta',
@@ -81,7 +73,7 @@ const serviceCards = [
     id: 'control-panel-design',
     title: 'Control Panel Design',
     tag: 'ELECTRICAL & POWER CONTROL',
-    image: '/assets/images/plc-control-panel-hd.jpg',
+    image: '/assets/images/control-panel-custom.jpg',
     shortDesc: 'Custom engineering, fabrication, and wiring of CPRI-compliant PLC, VFD, and MCC automation control panels built for continuous 24/7 industrial performance.',
     fullDesc: 'End-to-end design, fabrication, and on-site testing of low-voltage automation control panels, motor control centers (MCC), and power distribution panels engineered to IEC 61439 and IP55/IP65 standards.',
     features: [
@@ -106,7 +98,7 @@ const serviceCards = [
       'Precision analog process control with self-tuning PID algorithms (Temperature, Pressure, Flow)',
       'Non-intrusive retrofit logic updates with zero production disruption'
     ],
-    platforms: 'Delta DVP / AS Series, Schneider Modicon, Emerson DeltaV, Omron Sysmac, Mitsubishi MELSEC',
+    platforms: 'Emerson, Schneider Modicon, Phoenix Contact',
     standards: 'IEC 61131-3, ISA-88 Batch Control, SIL-2/SIL-3 Functional Safety'
   },
   {
@@ -122,7 +114,7 @@ const serviceCards = [
       'Secure multi-protocol drivers: Modbus TCP/RTU, OPC-UA/DA, IEC 60870-5-104, DNP3',
       'Real-time historian database logging with automated production shift reports'
     ],
-    platforms: 'Progea Movicon.NExT, Ignition SCADA, Wonderware / AVEVA System Platform, Emerson DeltaV, Schneider EcoStruxure',
+    platforms: 'Progea Movicon.NExT, Cimplicity',
     standards: 'ISA-101 HMI/SCADA Design, 21 CFR Part 11 Electronic Records, NERC CIP Cybersecurity'
   },
   {
@@ -138,7 +130,7 @@ const serviceCards = [
       'Direct hardware I/O diagnostic screens for rapid fault localization without laptops',
       'Dual Ethernet / RS-485 serial communication with instant PLC synchronization'
     ],
-    platforms: 'Progea Movicon.NExT HMI, Delta DOP-100 Series, Schneider Magelis / Harmony, Renu FlexiPanels',
+    platforms: 'Delta, Schneider, Emerson QP+, Renu',
     standards: 'ISA-101 Ergonomic Guidelines, IP66 Front Bezel Protection, IEC 60068 Environmental Testing'
   },
   {
@@ -204,7 +196,7 @@ export default function HomePage({ onShowToast }) {
     } catch (err) {
       console.error(err);
       setSubmitting(false);
-      onShowToast('Unable to send enquiry automatically. Please email info@chitaisoftautomation.in directly.', 'error');
+      onShowToast('Unable to send enquiry automatically. Please email chitaisoft@gmail.com directly.', 'error');
     }
   };
 
@@ -214,15 +206,6 @@ export default function HomePage({ onShowToast }) {
       <section className="hero-section circuit-bg">
         <div className="container">
           <div className="hero-content">
-            {/* Live Telemetry Radar Pill */}
-            <div className="live-telemetry-pill">
-              <div className="radar-dot-wrapper">
-                <div className="radar-ring"></div>
-                <div className="radar-dot"></div>
-              </div>
-              <span>SYSTEM ONLINE &bull; REAL-TIME INDUSTRIAL AUTOMATION &amp; IOT</span>
-            </div>
-
             <div className="hero-eyebrow">
               INDUSTRIAL AUTOMATION &bull; PAN-INDIA SOLUTIONS
             </div>
@@ -368,14 +351,10 @@ export default function HomePage({ onShowToast }) {
                 </ul>
               </div>
 
-              <div className="service-modal-specs">
+              <div className="service-modal-specs" style={{ gridTemplateColumns: '1fr' }}>
                 <div className="service-spec-box">
                   <span className="spec-label">Platforms &amp; Hardware</span>
                   <span className="spec-val">{selectedService.platforms}</span>
-                </div>
-                <div className="service-spec-box">
-                  <span className="spec-label">Standards &amp; Quality</span>
-                  <span className="spec-val">{selectedService.standards}</span>
                 </div>
               </div>
 
@@ -408,25 +387,24 @@ export default function HomePage({ onShowToast }) {
       <section className="movicon-showcase-section" id="scada-showcase">
         <div className="container">
           <div style={{ textAlign: 'center', maxWidth: '850px', margin: '0 auto' }}>
-            <div className="movicon-badge-pill">
-              <span className="live-pulse-dot" style={{ display: 'inline-block' }}></span>
-              MOVICON.NExT™ CERTIFIED SCADA ENGINEERING
-            </div>
             <h2 className="section-title white" style={{ marginBottom: '14px' }}>
               Real-World Process Automation &amp; 3D Telemetry
             </h2>
-            <p className="section-lead white" style={{ margin: '0 auto' }}>
-              Engineered by Chitai Soft Automation: High-performance ISA-101 compliant SCADA screens deployed with Emerson Progea Movicon.NExT™ for continuous municipal and industrial plant monitoring.
+            <p className="section-lead white" style={{ margin: '0 auto 12px', fontSize: '1.05rem', lineHeight: '1.6' }}>
+              SCADA systems provide real-time process monitoring, equipment status, alarm notifications, historical trends, and reports &mdash; all from one user-friendly dashboard.
+            </p>
+            <p className="section-lead white" style={{ margin: '0 auto', fontSize: '0.98rem', opacity: 0.9, lineHeight: '1.6' }}>
+              From water treatment plants to industrial processes, we help you monitor operations, improve visibility, and make better decisions.
             </p>
           </div>
 
-          <div className="movicon-cards-grid">
-            {/* Card 1: Wastewater Treatment 3D Isometric View */}
+          <div className="movicon-cards-grid" style={{ maxWidth: '800px', margin: '42px auto 0', gridTemplateColumns: '1fr' }}>
+            {/* Wastewater Treatment SCADA */}
             <div className="movicon-card">
               <div className="movicon-img-wrap">
                 <img
                   src="/assets/images/scada/movicon-next-wastewater-treatment.jpg"
-                  alt="Movicon.NExT Wastewater Treatment Plant 3D Isometric View & Multi-Channel Flow Telemetry"
+                  alt="Movicon.NExT Wastewater Treatment Plant SCADA & Multi-Channel Flow Telemetry"
                   loading="lazy"
                 />
                 <span className="movicon-screen-badge">3D PLANT MIMIC &amp; TRENDS</span>
@@ -436,51 +414,36 @@ export default function HomePage({ onShowToast }) {
               </div>
               <div className="movicon-body">
                 <span className="movicon-tag">MUNICIPAL &amp; INDUSTRIAL WASTEWATER</span>
-                <h3 className="movicon-title">Wastewater Treatment 3D Isometric Telemetry</h3>
-                <p className="movicon-desc">
-                  Full 3D isometric layout monitoring screening, aeration basins, secondary clarifiers, and pumping stations with synchronized multi-channel historical flow trend logging (primary, secondary, and discharge) alongside continuous effluent chemical telemetry (pH, Nitrogen, Phosphorus, Potassium).
-                </p>
-                <div className="movicon-pills">
-                  <span className="movicon-pill">4-Channel Trend Historian</span>
-                  <span className="movicon-pill">Effluent Parameter Tracking</span>
-                  <span className="movicon-pill">ISA-101 Ergonomic Colors</span>
-                  <span className="movicon-pill">Automated Alarm Routing</span>
-                </div>
+                <h3 className="movicon-title">Wastewater Treatment SCADA</h3>
+                <ul className="wastewater-scada-bullets" style={{ listStyle: 'none', padding: 0, margin: '20px 0', display: 'flex', flexDirection: 'column', gap: '11px' }}>
+                  <li style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', color: '#e2e8f0', fontSize: '0.94rem', lineHeight: 1.55 }}>
+                    <span style={{ color: '#38bdf8', fontWeight: 'bold' }}>&bull;</span>
+                    <span><strong style={{ color: '#ffffff' }}>Live Plant Monitoring:</strong> View plant status and process readings in real time.</span>
+                  </li>
+                  <li style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', color: '#e2e8f0', fontSize: '0.94rem', lineHeight: 1.55 }}>
+                    <span style={{ color: '#38bdf8', fontWeight: 'bold' }}>&bull;</span>
+                    <span><strong style={{ color: '#ffffff' }}>Flow Monitoring:</strong> Track inlet, process, and outlet water flow.</span>
+                  </li>
+                  <li style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', color: '#e2e8f0', fontSize: '0.94rem', lineHeight: 1.55 }}>
+                    <span style={{ color: '#38bdf8', fontWeight: 'bold' }}>&bull;</span>
+                    <span><strong style={{ color: '#ffffff' }}>Water Quality Monitoring:</strong> Monitor pH and other supported water quality parameters.</span>
+                  </li>
+                  <li style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', color: '#e2e8f0', fontSize: '0.94rem', lineHeight: 1.55 }}>
+                    <span style={{ color: '#38bdf8', fontWeight: 'bold' }}>&bull;</span>
+                    <span><strong style={{ color: '#ffffff' }}>Trends &amp; Reports:</strong> View historical data and analyze plant performance.</span>
+                  </li>
+                  <li style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', color: '#e2e8f0', fontSize: '0.94rem', lineHeight: 1.55 }}>
+                    <span style={{ color: '#38bdf8', fontWeight: 'bold' }}>&bull;</span>
+                    <span><strong style={{ color: '#ffffff' }}>Alarm Notifications:</strong> Get alerts for abnormal readings and equipment issues.</span>
+                  </li>
+                  <li style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', color: '#e2e8f0', fontSize: '0.94rem', lineHeight: 1.55 }}>
+                    <span style={{ color: '#38bdf8', fontWeight: 'bold' }}>&bull;</span>
+                    <span><strong style={{ color: '#ffffff' }}>Plant Overview:</strong> View important plant equipment and process information on one screen.</span>
+                  </li>
+                </ul>
                 <div className="movicon-meta-strip">
                   <span>Platform: Progea Movicon.NExT™</span>
                   <span>Protocol: OPC-UA &amp; Modbus TCP</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Card 2: Anaerobic Digester & Clarifier Process Mimic */}
-            <div className="movicon-card">
-              <div className="movicon-img-wrap">
-                <img
-                  src="/assets/images/scada/movicon-next-process-clarifier.jpg"
-                  alt="Movicon.NExT Clarifier & Anaerobic Digestion Industrial Process Mimic"
-                  loading="lazy"
-                />
-                <span className="movicon-screen-badge">PROCESS P&amp;ID &amp; BIOGAS FLOW</span>
-                <span className="movicon-status-badge">
-                  <span className="live-pulse-dot"></span> ACTIVE SUPERVISION
-                </span>
-              </div>
-              <div className="movicon-body">
-                <span className="movicon-tag">PROCESS INDUSTRIES &amp; BIO-ENERGY</span>
-                <h3 className="movicon-title">Anaerobic Digester &amp; Clarifier Mimic</h3>
-                <p className="movicon-desc">
-                  Dynamic animated P&amp;ID flow visualization coordinating mechanical thickeners, high-temperature clarifiers, anaerobic digestion vessels, and biogas extraction pipelines. Features millisecond thermal trip alarm prioritization, sludge dehydration sequencing, and dual auto/manual interlocks.
-                </p>
-                <div className="movicon-pills">
-                  <span className="movicon-pill">High-Temp Thermal Trip Interlocks</span>
-                  <span className="movicon-pill">Biogas Routing &amp; Flow Metering</span>
-                  <span className="movicon-pill">Sludge Dehydration Control</span>
-                  <span className="movicon-pill">Dual Auto / Manual Logic</span>
-                </div>
-                <div className="movicon-meta-strip">
-                  <span>Platform: Progea Movicon.NExT™</span>
-                  <span>Safety: SIL-2 High Temp Interlocks</span>
                 </div>
               </div>
             </div>
@@ -488,7 +451,7 @@ export default function HomePage({ onShowToast }) {
         </div>
       </section>
 
-      {/* 8 Industry Partner Logo Cards (White Background) */}
+      {/* Industry Partner Logo Cards (White Background) */}
       <section className="trusted-partners-section" id="partners-section">
         <div className="container">
           <p className="partners-subtext-heading">
