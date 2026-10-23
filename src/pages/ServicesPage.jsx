@@ -192,7 +192,7 @@ export default function ServicesPage() {
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '24px', flexWrap: 'wrap', gap: '16px' }}>
             <div>
               <div className="section-eyebrow">
-                <span>&diamond; LIVE SOLUTION SHOWCASE</span>
+                <span>&#9670; LIVE SOLUTION SHOWCASE</span>
               </div>
               <h2 className="section-title" style={{ fontSize: '1.8rem', margin: '4px 0' }}>Core Engineering Capabilities in Action</h2>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
