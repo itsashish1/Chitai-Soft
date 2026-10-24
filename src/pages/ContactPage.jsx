@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { submitEnquiry } from '../services/emailService';
 import DynamicTypewriter from '../components/DynamicTypewriter';
+
+const TYPEWRITER_CONTACT_WORDS = ["Turnkey Automation", "PLC Commissioning", "SCADA Architecture", "IoT Telemetry", "Panel Fabrication"];
 
 export default function ContactPage({ onShowToast }) {
   const [formData, setFormData] = useState({
@@ -13,6 +15,11 @@ export default function ContactPage({ onShowToast }) {
   });
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    document.title = "Contact Us & Project Inquiry | Chitai Soft Automation";
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -49,7 +56,7 @@ export default function ContactPage({ onShowToast }) {
         <div className="container">
           <div className="section-eyebrow white">CONTACT</div>
           <h1 className="section-title white" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.2rem)' }}>
-            Connect for <DynamicTypewriter words={["Turnkey Automation", "PLC Commissioning", "SCADA Architecture", "IoT Telemetry", "Panel Fabrication"]} />
+            Connect for <DynamicTypewriter words={TYPEWRITER_CONTACT_WORDS} />
           </h1>
           <p className="section-lead white">
             Tell us about your automation requirements. Our engineers will review your project and respond within 24 hours.
@@ -101,6 +108,7 @@ export default function ContactPage({ onShowToast }) {
                   <div className="contact-label">EMAIL</div>
                   <div className="contact-val">
                     <a href="mailto:chitaisoft@gmail.com" style={{ color: 'var(--primary-blue)', display: 'block', fontWeight: 600 }}>chitaisoft@gmail.com</a>
+                    <a href="mailto:info@chitaisoftautomation.in" style={{ color: 'var(--primary-blue)', display: 'block', fontWeight: 600, marginTop: '4px' }}>info@chitaisoftautomation.in</a>
                   </div>
                 </div>
               </div>
@@ -174,13 +182,17 @@ export default function ContactPage({ onShowToast }) {
                     />
                   </div>
                   <div className="form-group">
-                    <label className="form-label" htmlFor="contact-phone">PHONE</label>
+                    <label className="form-label" htmlFor="contact-phone">PHONE NUMBER *</label>
                     <input
                       className="form-input"
                       id="contact-phone"
                       name="user_phone"
                       type="tel"
                       placeholder="+91 XXXXX XXXXX"
+                      required
+                      pattern="[0-9+\s\-]{10,15}"
+                      minLength={10}
+                      title="Please enter a valid 10-digit phone number"
                       value={formData.user_phone}
                       onChange={e => setFormData({ ...formData, user_phone: e.target.value })}
                     />
@@ -196,7 +208,7 @@ export default function ContactPage({ onShowToast }) {
                     value={formData.service_interest}
                     onChange={e => setFormData({ ...formData, service_interest: e.target.value })}
                   >
-                    <option value="" selected>Select a service...</option>
+                    <option value="">Select a service...</option>
                     <option value="plc-scada">PLC &amp; SCADA Systems</option>
                     <option value="iiot">Industrial IoT &amp; Smart Manufacturing</option>
                     <option value="control-panels">Control Panel Design &amp; Build</option>

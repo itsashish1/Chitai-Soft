@@ -4,12 +4,18 @@ import CounterCard from '../components/CounterCard';
 import DynamicTypewriter from '../components/DynamicTypewriter';
 import { submitEnquiry } from '../services/emailService';
 
+const TYPEWRITER_HERO_WORDS = ["Intelligent Control", "Industrial IoT", "Real-Time SCADA", "Zero Downtime", "High-Speed PLC"];
+const TYPEWRITER_PLANTS = ["Plant", "Production Lines", "Control Architecture", "Substations"];
+
 const partnerLogos = [
   { name: 'Schneider Electric', src: '/assets/images/logos/schneider.png', alt: 'Schneider Electric Modicon' },
   { name: 'Emerson', src: '/assets/images/logos/emerson.svg', alt: 'Emerson Process Systems' },
+  { name: 'Siemens', src: '/assets/images/logos/siemens.png', alt: 'Siemens Industrial Automation' },
+  { name: 'Rockwell Automation', src: '/assets/images/logos/rockwell.png', alt: 'Rockwell Allen-Bradley' },
   { name: 'Phoenix Contact', src: '/assets/images/logos/phoenix.png', alt: 'Phoenix Contact' },
   { name: 'Delta Electronics', src: '/assets/images/logos/delta.png', alt: 'Delta Industrial Automation' },
   { name: 'Renu Electronics', src: '/assets/images/logos/renu.png', alt: 'Renu Electronics' },
+  { name: 'Honeywell', src: '/assets/images/logos/honeywell.png', alt: 'Honeywell Process Solutions' },
   { name: 'Selec', src: '/assets/images/logos/selec.png', alt: 'Selec Controls' },
   { name: 'GE Vernova', src: '/assets/images/logos/ge-vernova.png', alt: 'GE Vernova Automation' },
 ];
@@ -181,6 +187,11 @@ export default function HomePage({ onShowToast }) {
   const [selectedService, setSelectedService] = useState(null);
 
   useEffect(() => {
+    document.title = "Chitai Soft Automation | Precision Automation & Intelligent Control";
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, []);
+
+  useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') setSelectedService(null);
     };
@@ -229,7 +240,7 @@ export default function HomePage({ onShowToast }) {
             </div>
             <h1 className="hero-title">
               Precision Automation<br />
-              <DynamicTypewriter words={["Intelligent Control", "Industrial IoT", "Real-Time SCADA", "Zero Downtime", "High-Speed PLC"]} />
+              <DynamicTypewriter words={TYPEWRITER_HERO_WORDS} />
             </h1>
             <p className="hero-subtitle">
               PLC &amp; SCADA systems and Industrial IoT solutions engineered for power generation, process industries, and manufacturing across India and beyond.
@@ -397,7 +408,7 @@ export default function HomePage({ onShowToast }) {
                   className="btn btn-primary"
                   onClick={() => {
                     setSelectedService(null);
-                    const formEl = document.querySelector('.enquiry-card') || document.querySelector('form');
+                    const formEl = document.querySelector('.enquiry-form-card') || document.querySelector('form');
                     if (formEl) formEl.scrollIntoView({ behavior: 'smooth' });
                   }}
                 >
@@ -523,7 +534,7 @@ export default function HomePage({ onShowToast }) {
               <div>
                 <div className="section-eyebrow white">GET IN TOUCH</div>
                 <h2 className="section-title white">
-                  Ready to Automate Your <DynamicTypewriter words={["Plant", "Production Lines", "Control Architecture", "Substations"]} />?
+                  Ready to Automate Your <DynamicTypewriter words={TYPEWRITER_PLANTS} />?
                 </h2>
                 <p className="section-lead white" style={{ marginTop: '14px' }}>
                   Tell us about your process. Our engineers will assess your requirements and propose the right automation architecture.
@@ -584,6 +595,9 @@ export default function HomePage({ onShowToast }) {
                     type="tel"
                     placeholder="+91 XXXXX XXXXX"
                     required
+                    pattern="[0-9+\s\-]{10,15}"
+                    minLength={10}
+                    title="Please enter a valid 10-digit phone number"
                     value={formData.user_phone}
                     onChange={e => setFormData({ ...formData, user_phone: e.target.value })}
                   />

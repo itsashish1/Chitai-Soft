@@ -44,11 +44,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // EmailJS Configuration (PRD Section 7.4)
   const EMAILJS_CONFIG = {
-    // Provide live keys from emailjs.com dashboard when ready:
-    publicKey: "YOUR_EMAILJS_PUBLIC_KEY",
-    serviceId: "service_chitaisoft",
-    templateIdAdmin: "template_admin_alert",
-    templateIdClient: "template_client_reply"
+    publicKey: "ucKP_bITYsfk2_x5Q",
+    serviceId: "service_u5zcasj",
+    templateIdAdmin: "template_rz71c4b",
+    templateIdClient: null
   };
 
   // Initialize EmailJS if public key is configured

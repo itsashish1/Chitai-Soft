@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const SLIDES = [
   {
@@ -9,7 +10,7 @@ const SLIDES = [
     image: '/assets/images/scada-control-room-hd.jpg',
     pills: ['Real-Time Mimics', 'Historian Integration', 'ISA 18.2 Alarm Mgmt'],
     btnText: 'Explore SCADA Systems →',
-    btnTarget: '#plc-scada'
+    btnTarget: '/services#plc-scada'
   },
   {
     id: 2,
@@ -19,7 +20,7 @@ const SLIDES = [
     image: '/assets/images/plc-control-panel-hd.jpg',
     pills: ['IP55/IP65 Enclosures', 'VFD & Servo Drives', 'IEC 61439 Standards'],
     btnText: 'View Panel Capabilities →',
-    btnTarget: '#plc-scada'
+    btnTarget: '/services#plc-scada'
   },
   {
     id: 3,
@@ -29,7 +30,7 @@ const SLIDES = [
     image: '/assets/images/iiot-smart-factory-hd.jpg',
     pills: ['Vibration & Temp Telemetry', 'Real-Time OEE', 'SMS / WhatsApp Alerts'],
     btnText: 'View Machine Telemetry →',
-    btnTarget: '#machine-monitoring'
+    btnTarget: '/services#machine-monitoring'
   },
   {
     id: 4,
@@ -39,7 +40,7 @@ const SLIDES = [
     image: '/assets/images/energy-submetering-hd.jpg',
     pills: ['Feeder-Wise Sub-Metering', 'Peak Demand Alerts', 'DG Fuel Optimization'],
     btnText: 'Explore Energy Solutions →',
-    btnTarget: '#energy-monitoring'
+    btnTarget: '/services#energy-monitoring'
   }
 ];
 
@@ -87,13 +88,13 @@ export default function Slider() {
                 ))}
               </div>
               <div>
-                <a
-                  href={slide.btnTarget}
+                <Link
+                  to={slide.btnTarget}
                   className="btn btn-primary"
                   style={{ padding: '10px 22px', fontSize: '0.88rem' }}
                 >
                   {slide.btnText}
-                </a>
+                </Link>
               </div>
             </div>
           </div>

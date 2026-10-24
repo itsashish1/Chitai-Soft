@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import Slider from '../components/Slider';
 import FaqAccordion from '../components/FaqAccordion';
 import DynamicTypewriter from '../components/DynamicTypewriter';
+
+const TYPEWRITER_SERVICES = ["PLC & SCADA", "Machine Monitoring", "Industrial IoT", "Power Management"];
 
 const SERVICES_FAQS = [
   {
@@ -80,7 +82,7 @@ const SERVICES_DATA = [
     category: 'energy-monitoring',
     title: 'Energy & Power Management Systems',
     tag: 'POWER OPTIMIZATION',
-    image: '/assets/images/scada/movicon-next-process-clarifier.jpg',
+    image: '/assets/images/energy-submetering-hd.jpg',
     shortDesc: 'Substation metering, load curve analytics, and automated power factor correction to eliminate utility penalty charges.',
     fullDesc: 'Comprehensive electrical power monitoring and load analytics across plant transformers, feeders, and heavy motor loads. Automates power factor correction capacitor staging and alerts engineers to peak demand spikes to reduce industrial tariff bills.',
     features: [
@@ -132,6 +134,43 @@ export default function ServicesPage() {
   const [activeFilter, setActiveFilter] = useState('all');
   const [selectedService, setSelectedService] = useState(null);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    document.title = "Services & Supported Platforms | Chitai Soft Automation";
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, []);
+
+  useEffect(() => {
+    if (location.hash) {
+      const hashClean = location.hash.replace('#', '');
+      if (['plc-scada', 'machine-monitoring', 'energy-monitoring', 'iiot'].includes(hashClean)) {
+        setActiveFilter(hashClean);
+      }
+      setTimeout(() => {
+        const targetEl = document.getElementById(hashClean);
+        if (targetEl) {
+          targetEl.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, [location.hash]);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setSelectedService(null);
+    };
+    if (selectedService) {
+      document.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedService]);
 
   const filteredServices = activeFilter === 'all'
     ? SERVICES_DATA
@@ -144,7 +183,7 @@ export default function ServicesPage() {
         <div className="container" style={{ textAlign: 'center' }}>
           <div className="section-eyebrow white" style={{ justifyContent: 'center' }}>WHAT WE DO</div>
           <h1 className="section-title white" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.2rem)', margin: '10px 0 16px' }}>
-            Engineering Services in <DynamicTypewriter words={["PLC & SCADA", "Machine Monitoring", "Industrial IoT", "Power Management"]} />
+            Engineering Services in <DynamicTypewriter words={TYPEWRITER_SERVICES} />
           </h1>
           <p className="section-lead white" style={{ margin: '0 auto 28px', maxWidth: '820px' }}>
             End-to-end automation engineering &mdash; from control architecture design through commissioning, integration, and ongoing support.
@@ -221,7 +260,11 @@ export default function ServicesPage() {
 
           <div className="services-five-grid">
             {filteredServices.map((service) => (
-              <div className="corner-card service-preview-card" key={service.id}>
+              <div
+                className="corner-card service-preview-card"
+                id={service.id === 'plc-control' ? 'plc-scada' : (service.id === 'iiot-smart' ? 'iiot' : service.id)}
+                key={service.id}
+              >
                 <div className="service-card-img-wrap">
                   <img src={service.image} alt={service.title} loading="lazy" />
                 </div>
@@ -248,7 +291,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Supported Multi-Vendor Hardware Brands */}
-      <section className="brands-section" style={{ padding: '65px 0' }}>
+      <section className="brands-section" id="brands" style={{ padding: '65px 0' }}>
         <div className="container">
           <div className="section-header-centered" style={{ marginBottom: '32px' }}>
             <div className="section-eyebrow" style={{ justifyContent: 'center' }}>MULTI-VENDOR PLATFORMS</div>
@@ -260,6 +303,9 @@ export default function ServicesPage() {
 
           <div className="grid-4">
             <div className="brand-card corner-card">
+              <div style={{ height: '46px', display: 'flex', alignItems: 'center', marginBottom: '14px' }}>
+                <img src="/assets/images/logos/emerson.svg" alt="Emerson Automation" style={{ maxHeight: '34px', maxWidth: '140px', objectFit: 'contain' }} />
+              </div>
               <div>
                 <div className="brand-badge">EMERSON</div>
                 <p className="brand-platforms">
@@ -274,6 +320,9 @@ export default function ServicesPage() {
             </div>
 
             <div className="brand-card corner-card">
+              <div style={{ height: '46px', display: 'flex', alignItems: 'center', marginBottom: '14px' }}>
+                <img src="/assets/images/logos/renu.png" alt="Renu Electronics" style={{ maxHeight: '34px', maxWidth: '140px', objectFit: 'contain' }} />
+              </div>
               <div>
                 <div className="brand-badge">RENU</div>
                 <p className="brand-platforms">
@@ -288,6 +337,9 @@ export default function ServicesPage() {
             </div>
 
             <div className="brand-card corner-card">
+              <div style={{ height: '46px', display: 'flex', alignItems: 'center', marginBottom: '14px' }}>
+                <img src="/assets/images/logos/delta.png" alt="Delta Electronics" style={{ maxHeight: '34px', maxWidth: '140px', objectFit: 'contain' }} />
+              </div>
               <div>
                 <div className="brand-badge">DELTA</div>
                 <p className="brand-platforms">
@@ -302,6 +354,9 @@ export default function ServicesPage() {
             </div>
 
             <div className="brand-card corner-card">
+              <div style={{ height: '46px', display: 'flex', alignItems: 'center', marginBottom: '14px' }}>
+                <img src="/assets/images/logos/schneider.png" alt="Schneider Electric" style={{ maxHeight: '34px', maxWidth: '140px', objectFit: 'contain' }} />
+              </div>
               <div>
                 <div className="brand-badge">SCHNEIDER</div>
                 <p className="brand-platforms">

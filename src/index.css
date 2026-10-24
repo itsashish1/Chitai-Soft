@@ -26,7 +26,13 @@
 
   --border-light: #e2e8f0;
   --border-blue: #cbd5e1;
+  --border-color: #e2e8f0;
   --corner-bracket-color: #93c5fd;
+
+  --bg-alt: #f8fafc;
+  --color-cyan: #00b4d8;
+  --color-blue-900: #0a316c;
+  --transition-fast: 0.2s ease;
 
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', Menlo, monospace;
@@ -1819,6 +1825,17 @@ select {
   }
 }
 
+@media (max-width: 1024px) {
+  .desktop-nav,
+  .header-cta {
+    display: none !important;
+  }
+
+  .unique-hamburger-btn {
+    display: flex !important;
+  }
+}
+
 @media (max-width: 768px) {
   .container {
     padding-left: 16px;
@@ -1827,15 +1844,6 @@ select {
 
   .site-header .container {
     height: 60px;
-  }
-
-  .desktop-nav,
-  .header-cta {
-    display: none !important;
-  }
-
-  .unique-hamburger-btn {
-    display: flex !important;
   }
 
   /* Compact Spacing Across All Mobile Pages (Prevents Excessive Scrolling) */

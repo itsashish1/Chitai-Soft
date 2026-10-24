@@ -16,8 +16,12 @@ export default function DynamicTypewriter({
   const [currentText, setCurrentText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
 
+  const wordsKey = JSON.stringify(words);
+  const memoizedWords = React.useMemo(() => words, [wordsKey]);
+
   useEffect(() => {
-    const fullWord = words[currentWordIndex % words.length];
+    if (!memoizedWords || memoizedWords.length === 0) return;
+    const fullWord = memoizedWords[currentWordIndex % memoizedWords.length];
 
     let timer;
     if (!isDeleting) {
@@ -41,12 +45,12 @@ export default function DynamicTypewriter({
       } else {
         // Finished deleting, move to next word
         setIsDeleting(false);
-        setCurrentWordIndex((prev) => (prev + 1) % words.length);
+        setCurrentWordIndex((prev) => (prev + 1) % memoizedWords.length);
       }
     }
 
     return () => clearTimeout(timer);
-  }, [currentText, isDeleting, currentWordIndex, words, typingSpeed, deletingSpeed, pauseDuration]);
+  }, [currentText, isDeleting, currentWordIndex, memoizedWords, typingSpeed, deletingSpeed, pauseDuration]);
 
   return (
     <span className={`dynamic-typewriter-wrap ${className}`} aria-live="polite">

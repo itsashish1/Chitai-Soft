@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import DynamicTypewriter from '../components/DynamicTypewriter';
 
+const TYPEWRITER_ABOUT = ["Chitai Soft", "Industrial Automation", "Control Engineering", "Smart Factories"];
+
 export default function AboutPage() {
+  useEffect(() => {
+    document.title = "About Us | Chitai Soft Automation";
+  }, []);
+
   return (
     <div className="about-page">
       {/* Page Hero with Dynamic Typewriter (Automax inspired) */}
@@ -12,7 +18,7 @@ export default function AboutPage() {
             &bull; WHO WE ARE
           </div>
           <h1 className="section-title white" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.4rem)', margin: '12px 0 16px' }}>
-            About <DynamicTypewriter words={["Chitai Soft", "Industrial Automation", "Control Engineering", "Smart Factories"]} />
+            About <DynamicTypewriter words={TYPEWRITER_ABOUT} />
           </h1>
           <p className="section-lead white" style={{ margin: '0 auto', maxWidth: '820px' }}>
             Leading the future of industrial automation with innovative control architectures, PLC/SCADA systems, and expert commissioning across India.
@@ -220,6 +226,51 @@ export default function AboutPage() {
               </h3>
               <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', lineHeight: 1.55 }}>
                 End-to-end project management from functional design specification through FAT, SAT, handover, and ongoing support.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Geographical Presence & Pan-India Service Reach (PRD E4 Specification) */}
+      <section className="section-padding" style={{ backgroundColor: '#f8fafc', borderTop: '1px solid #e2e8f0' }}>
+        <div className="container">
+          <div className="section-header-centered" style={{ marginBottom: '32px' }}>
+            <div className="section-eyebrow" style={{ justifyContent: 'center' }}>NATIONWIDE FOOTPRINT</div>
+            <h2 className="section-title">Geographical Presence &amp; Service Reach</h2>
+            <p className="section-lead" style={{ maxWidth: '720px', margin: '0 auto' }}>
+              Strategic central engineering base in Uttar Pradesh with proven commissioning execution across industrial clusters throughout India.
+            </p>
+          </div>
+
+          <div className="capabilities-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
+            <div className="corner-card" style={{ padding: '24px', background: '#ffffff' }}>
+              <div style={{ color: 'var(--color-primary)', marginBottom: '12px', fontSize: '1.8rem' }}>🏢</div>
+              <h3 style={{ fontSize: '1.15rem', fontWeight: 700, marginBottom: '8px', color: 'var(--text-main)' }}>
+                Lucknow Headquarters
+              </h3>
+              <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', lineHeight: 1.55 }}>
+                Central engineering, software simulation, FAT staging, and customer support hub located at Sector-18, Indiranagar, Lucknow, UP.
+              </p>
+            </div>
+
+            <div className="corner-card" style={{ padding: '24px', background: '#ffffff' }}>
+              <div style={{ color: 'var(--color-primary)', marginBottom: '12px', fontSize: '1.8rem' }}>🇮🇳</div>
+              <h3 style={{ fontSize: '1.15rem', fontWeight: 700, marginBottom: '8px', color: 'var(--text-main)' }}>
+                Pan-India Field Commissioning
+              </h3>
+              <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', lineHeight: 1.55 }}>
+                Field engineering teams regularly deputed for on-site wiring audits, cold/hot SAT testing, and live process cutover across northern, western, and southern industrial corridors.
+              </p>
+            </div>
+
+            <div className="corner-card" style={{ padding: '24px', background: '#ffffff' }}>
+              <div style={{ color: 'var(--color-primary)', marginBottom: '12px', fontSize: '1.8rem' }}>⚡</div>
+              <h3 style={{ fontSize: '1.15rem', fontWeight: 700, marginBottom: '8px', color: 'var(--text-main)' }}>
+                24-Hour Technical SLA
+              </h3>
+              <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', lineHeight: 1.55 }}>
+                Rapid response commitment: emergency remote diagnostics via encrypted industrial VPN tunnels and rapid on-site engineer deployment within 24 hours.
               </p>
             </div>
           </div>

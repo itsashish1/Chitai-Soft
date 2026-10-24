@@ -6,11 +6,21 @@ export default function ScrollToTop() {
 
   useEffect(() => {
     if (hash) {
-      const element = document.getElementById(hash.replace('#', ''));
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-        return;
+      const targetId = hash.replace('#', '');
+      const scrollTarget = () => {
+        const element = document.getElementById(targetId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+          return true;
+        }
+        return false;
+      };
+
+      if (!scrollTarget()) {
+        const timer = setTimeout(scrollTarget, 120);
+        return () => clearTimeout(timer);
       }
+      return;
     }
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }, [pathname, hash]);

@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import FaqAccordion from '../components/FaqAccordion';
 import DynamicTypewriter from '../components/DynamicTypewriter';
+
+const TYPEWRITER_INDUSTRIES = ["Oil & Gas", "Power & Utilities", "Water Treatment", "Smart Factories", "Chemical Plants"];
 
 const INDUSTRIES_FAQS = [
   {
@@ -41,7 +43,7 @@ const INDUSTRIES_DATA = [
     category: 'power-energy',
     title: 'Power Generation & Utilities',
     tag: 'UTILITY-GRADE REDUNDANCY',
-    image: '/assets/images/plc-control-panel-hd.jpg',
+    image: '/assets/images/power-control.png',
     shortDesc: 'Hot-standby redundant PLC architectures, steam/gas turbine protection, and IEC 61850 substation automation.',
     fullDesc: 'Utility-grade control and protection for thermal, hydro, and electrical substation installations. Redundant controller pairs guarantee bump-less switchover during failover, maintaining 99.99% grid and plant availability.',
     features: [
@@ -128,6 +130,24 @@ export default function IndustriesPage() {
   const [selectedIndustry, setSelectedIndustry] = useState(null);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    document.title = "Industries We Serve | Chitai Soft Automation";
+  }, []);
+
+  useEffect(() => {
+    if (selectedIndustry) {
+      const handleKeyDown = (e) => {
+        if (e.key === 'Escape') setSelectedIndustry(null);
+      };
+      document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleKeyDown);
+      return () => {
+        document.body.style.overflow = '';
+        window.removeEventListener('keydown', handleKeyDown);
+      };
+    }
+  }, [selectedIndustry]);
+
   const filteredIndustries = activeFilter === 'all'
     ? INDUSTRIES_DATA
     : INDUSTRIES_DATA.filter(ind => ind.category === activeFilter);
@@ -139,7 +159,7 @@ export default function IndustriesPage() {
         <div className="container" style={{ textAlign: 'center' }}>
           <div className="section-eyebrow white" style={{ justifyContent: 'center' }}>SECTORS WE EMPOWER</div>
           <h1 className="section-title white" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.2rem)', margin: '10px 0 16px' }}>
-            Turnkey Automation for <DynamicTypewriter words={["Oil & Gas", "Power & Utilities", "Water Treatment", "Smart Factories", "Chemical Plants"]} />
+            Turnkey Automation for <DynamicTypewriter words={TYPEWRITER_INDUSTRIES} />
           </h1>
           <p className="section-lead white" style={{ margin: '0 auto 28px', maxWidth: '820px' }}>
             From oil &amp; gas facilities to utility power generation, we engineer robust automation architectures built around the demanding realities of your vertical.
