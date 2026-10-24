@@ -328,4 +328,4 @@ To enable real-time inquiry delivery without requiring a dedicated backend or se
 * [x] **Phase D (Schema Markup):** Implement Organization, LocalBusiness, Service, and FAQ JSON-LD schemas (Completed)
 * [x] **Phase E (Content & GEO):** Integrate technical FAQ sections and structured metric tables for AI Overviews (Completed)
 * [ ] **Phase F (Authority & Maps):** Launch and verify Google Business Profile and synchronize B2B directory citations
-* [x] **Phase G (Live Inquiry Dispatch & EmailJS Production Credentials):** [COMPLETED] Live EmailJS configuration wired with Service ID (`service_u5zcasj`), Template ID (`template_rz71c4b`), and Public Key (`ucKP_bITYsfk2_x5Q`). Direct real-time dispatch to `chitaisoft@gmail.com` and `info@chitaisoftautomation.in` enabled for all website consultation forms.
+* [x] **Phase G (Live Inquiry Dispatch & EmailJS Production Credentials):** [COMPLETED] Live EmailJS configuration wired with Service ID (`service_u5zcasj`), Template ID (`template_z2upf3g`), and Public Key (`ucKP_bITYsfk2_x5Q`). Direct real-time dispatch to `chitaisoft@gmail.com` and `info@chitaisoftautomation.in` enabled for all website consultation forms.

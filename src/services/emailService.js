@@ -3,7 +3,7 @@ import emailjs from '@emailjs/browser';
 export const EMAILJS_CONFIG = {
   publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "ucKP_bITYsfk2_x5Q",
   serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID || "service_u5zcasj",
-  templateIdAdmin: import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "template_rz71c4b",
+  templateIdAdmin: import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "template_z2upf3g",
   templateIdClient: import.meta.env.VITE_EMAILJS_TEMPLATE_CLIENT_ID || null
 };
 
